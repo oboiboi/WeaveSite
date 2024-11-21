@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil</title>
+    <!-- LINKS CONECTANDO FIREBASE, TAILWIND/FLOWBITE E O CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.css" rel="stylesheet" />
+    <script src="https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/11.0.1/firebase-storage.js"></script>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="shortcut icon" type="image/jpg" href="/img/logo-desenho-preta.ico"/>
+</head>
+
+<body class="bg-gradient-to-t from-[#013C55] via-[#468299] to-[#84B0C3]">
+
+    <!-- COMEÇO DA NAVBAR  -->
+    <nav class="w-full">
+        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+            <a class="flex items-center justify-between;" href="/index.html">
+                <img class="h-9 mr-[5px]" src="/img/logo-desenho.svg" alt="logo">
+                <img class="h-9" src="/img/logo-escrita.svg" alt="logo">
+            </a>
+            <div class="flex items-center lg:order-2 space-x-3 lg:space-x-0 rtl:space-x-reverse">
+                <!-- BOTÃO PARA ACESSAR OUTRAS OPÇÕES DA CONTA -->
+                <button type="button"
+                    class="flex text-sm items-center rounded-full lg:me-0 text-white hover:text-[#d91424] group"
+                    id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown"
+                    data-dropdown-placement="bottom" onclick="toggleRotation()">
+                    <span class="sr-only">Open user menu</span>
+                    <svg viewBox="-0.75 -0.75 24 24" xmlns="http://www.w3.org/2000/svg"
+                        id="Single-Man-Circle--Streamline-Ultimate" height="36" width="36"
+                        class="stroke-current text-white group-hover:text-[#d91424]">
+                        <desc>Single Man Circle Streamline Icon: https://streamlinehq.com</desc>
+                        <path
+                            d="M7.00875 6.641249999999999A8.1665625 8.1665625 0 0 0 12.890625 9.140625a8.1796875 8.1796875 0 0 0 3.234375 -0.6656249999999999"
+                            fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
+                        <path
+                            d="M6.328125 9.140625a4.921875 4.921875 0 1 0 9.84375 0 4.921875 4.921875 0 1 0 -9.84375 0Z"
+                            fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
+                        <path d="M17.7309375 19.571250000000003a9.136875 9.136875 0 0 0 -12.961875000000001 0"
+                            fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
+                        <path
+                            d="M0.703125 11.25a10.546875 10.546875 0 1 0 21.09375 0 10.546875 10.546875 0 1 0 -21.09375 0Z"
+                            fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
+                    </svg>
+                    <span class="hidden lg:block ml-[5px] mr-[5px] text-lg text-white group-hover:text-[#d91424] medio">
+                        Conta
+                    </span>
+                    <div class="hidden lg:block flex items-center justify-center group">
+                        <svg width="1.25rem" height="1.25rem" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"
+                            class="fill-current group-hover:text-[#d91424] transition-transform duration-300 transform"
+                            id="arrow-icon">
+                            <g id="SVGRepo_bgCarrier" stroke-width="0" />
+                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" />
+                            <g id="SVGRepo_iconCarrier">
+                                <metadata id="metadata7">
+                                    <rdf:rdf>
+                                        <cc:work>
+                                            <dc:format>image/svg+xml</dc:format>
+                                            <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+                                            <dc:title />
+                                            <dc:date>2021</dc:date>
+                                            <dc:creator>
+                                                <cc:agent>
+                                                    <dc:title>Timothée Giet</dc:title>
+                                                </cc:agent>
+                                            </dc:creator>
+                                            <cc:license rdf:resource="http://creativecommons.org/licenses/by-sa/4.0/" />
+                                        </cc:work>
+                                        <cc:license rdf:about="http://creativecommons.org/licenses/by-sa/4.0/">
+                                            <cc:permits rdf:resource="http://creativecommons.org/ns#Reproduction" />
+                                            <cc:permits rdf:resource="http://creativecommons.org/ns#Distribution" />
+                                            <cc:requires rdf:resource="http://creativecommons.org/ns#Notice" />
+                                            <cc:requires rdf:resource="http://creativecommons.org/ns#Attribution" />
+                                            <cc:permits rdf:resource="http://creativecommons.org/ns#DerivativeWorks" />
+                                            <cc:requires rdf:resource="http://creativecommons.org/ns#ShareAlike" />
+                                        </cc:license>
+                                    </rdf:rdf>
+                                </metadata>
+                                <g id="layer1" transform="rotate(45 1254.793 524.438)">
+                                    <path d="M.536 1044.409v-1.997h9v-9h2v11z" />
+                                </g>
+                            </g>
+                        </svg>
+                    </div>
+                </button>
+
+                <!-- Dropdown menu -->
+                <div class="z-50 hidden my-4 text-base rounded-lg shadow bg-black" id="user-dropdown">
+                    <div class="pb-[0] pl-[10px] pr-[10px] py-3">
+                        <span
+                            class="block text-md bg-[#2a2a2a] border-8  text-white  border-[#2a2a2a] rounded-lg medio ">Gerenciar
+                            sua conta</span>
+                    </div>
+                    <ul class="py-2" aria-labelledby="user-menu-button">
+                        <li>
+                            <a href="/vender.html"
+                                class="block px-4 py-2 text-md text-white hover:text-[#D91424] medio" data-page="vender">Quero vender</a> <!-- LINK DIRECIONANDO PARA A PAGINA DE "QUERO VENDER"-->
+                        </li>
+                        <li>
+                            <button type="button" id="btnSair"
+                                class="block px-4 py-2 text-md text-white hover:text-[#D91424] medio">Sair</button> <!-- BOTÃO PARA DESLOGAR DA SUA CONTA -->
+                        </li>
+                    </ul>
+                </div>
+                <button data-collapse-toggle="navbar-user" type="button"
+                    class="inline-flex items-center  w-10 h-10 justify-center text-sm rounded-lg lg:hidden"
+                    aria-controls="navbar-user" aria-expanded="false">
+                    <span class="sr-only">Open main menu</span>
+                    <svg width="64px" height="64px" viewBox="0 0 24.00 24.00" fill="none"
+                        xmlns="http://www.w3.org/2000/svg" stroke="#ffffff" stroke-width="0.00024000000000000003">
+
+                        <g id="SVGRepo_bgCarrier" stroke-width="0" />
+
+                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" />
+
+                        <g id="SVGRepo_iconCarrier">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M19.5 8.25H4.5V6.75H19.5V8.25Z"
+                                fill="#ffffff" />
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M19.5 12.75H4.5V11.25H19.5V12.75Z"
+                                fill="#ffffff" />
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M19.5 17.25H4.5V15.75H19.5V17.25Z"
+                                fill="#ffffff" />
+                        </g>
+                    </svg>
+                </button>
+            </div>
+            <div class="hidden lg:block items-center justify-between w-full lg:flex lg:w-auto lg:order-1"
+                id="navbar-user">
+                <ul
+                    class="flex flex-col font-medium pt-4 mt-4 lg:space-x-8 rtl:space-x-reverse lg:flex-row lg:mt-0 border-t border-white lg:bg-transparent lg:rounded-none lg:border-none lg:p-0">
+                    <li>
+                        <a href="/index.html"
+                            class="block py-2 px-3 relative text-white rounded-lg text-center hover:bg-black lg:hover:text-[#D91424] transition-all ease-in-out lg:before:transition-[width] lg:before:ease-in-out lg:before:duration-700 lg:before:absolute lg:before:bg-[#D91424] lg:before:origin-center lg:before:h-[1px] lg:before:w-0 hover:before:w-[50%] lg:before:bottom-0 lg:before:left-[50%] lg:after:transition-[width] lg:after:ease-in-out lg:after:duration-700 lg:after:absolute lg:after:bg-[#D91424] lg:after:origin-center lg:after:h-[1px] lg:after:w-0 lg:hover:after:w-[50%] lg:after:bottom-0 lg:after:right-[50%] medio lg:hover:bg-transparent">Instalar</a> <!-- LINK DIRECIONANDO PARA A HOME DO SITE ONDE O BOTAO DE DOWNLOAD FICA -->
+                    </li>
+                    <li>
+                        <a href="/sobrenos.html"
+                            class="block py-2 px-3 relative text-white rounded-lg text-center hover:bg-black lg:hover:text-[#D91424] transition-all ease-in-out lg:before:transition-[width] lg:before:ease-in-out lg:before:duration-700 lg:before:absolute lg:before:bg-[#D91424] lg:before:origin-center lg:before:h-[1px] lg:before:w-0 hover:before:w-[50%] lg:before:bottom-0 lg:before:left-[50%] lg:after:transition-[width] lg:after:ease-in-out lg:after:duration-700 lg:after:absolute lg:after:bg-[#D91424] lg:after:origin-center lg:after:h-[1px] lg:after:w-0 lg:hover:after:w-[50%] lg:after:bottom-0 lg:after:right-[50%] medio lg:hover:bg-transparent">Sobre 
+                            Nós</a> <!-- LINK DIRECIONANDO PARA A PAGINA "SOBRE NÓS" -->
+                    </li>
+                    <li>
+                        <a href="/suporte.html"
+                            class="block py-2 px-3 relative text-white rounded-lg text-center hover:bg-black lg:hover:text-[#D91424] transition-all ease-in-out lg:before:transition-[width] lg:before:ease-in-out lg:before:duration-700 lg:before:absolute lg:before:bg-[#D91424] lg:before:origin-center lg:before:h-[1px] lg:before:w-0 hover:before:w-[50%] lg:before:bottom-0 lg:before:left-[50%] lg:after:transition-[width] lg:after:ease-in-out lg:after:duration-700 lg:after:absolute lg:after:bg-[#D91424] lg:after:origin-center lg:after:h-[1px] lg:after:w-0 lg:hover:after:w-[50%] lg:after:bottom-0 lg:after:right-[50%] medio lg:hover:bg-transparent">Suporte</a> <!-- LINK DIRECIONANDO PARA A PAGINA "SUPORTE" -->
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- FIM DA NAVBAR  -->
+    
+    <!-- COMEÇO DA SECTION -->
+    <section class="lg:mt-[40px] max-w-screen-xl mx-auto p-4">
+        <div class="xl:min-h-screen">
+            <div class="flex rounded-lg bg-white p-4 w-full mb-4">
+                <div class="flex items-center w-full">
+                    <!-- AREA ONDE APARECE A FOTO DE PERFIL PADRAO, CASO O USUARIO NAO POSSUA FOTO DE PERFIL -->
+                    <div class="hidden" id="withoutProfile">
+                        <svg  viewBox="-0.75 -0.75 24 24" xmlns="http://www.w3.org/2000/svg"
+                            height="56" width="56" class="stroke-current group-hover:text-[#013c55] transition-colors duration-300">
+                            <path
+                                d="M0.703125 11.25a10.546875 10.546875 0 1 0 21.09375 0 10.546875 10.546875 0 1 0 -21.09375 0Z"
+                                fill="none" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5">
+                            </path>
+                            <!-- Outros elementos do SVG -->
+                            <path d="M7.00875 6.641249999999999A8.1665625 8.1665625 0 0 0 12.890625 9.140625a8.1796875 8.1796875 0 0 0 3.234375 -0.6656249999999999"
+                                fill="none" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5">
+                            </path>
+                            <path
+                                d="M6.328125 9.140625a4.921875 4.921875 0 1 0 9.84375 0 4.921875 4.921875 0 1 0 -9.84375 0Z"
+                                fill="none" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5">
+                            </path>
+                            <path d="M17.7309375 19.571250000000003a9.136875 9.136875 0 0 0 -12.961875000000001 0"
+                                fill="none" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5">
+                            </path>
+                        </svg>
+                    </div>
+                    
+                    <!-- AREA ONDE APARECE A FOTO DE PERFIL DO USUARIO QUANDO ELE JA POSSUIR FOTO DE PERFIL -->
+                    <div class="hidden" id="withProfile">
+                        <svg viewBox="-0.75 -0.75 24 24" xmlns="http://www.w3.org/2000/svg"
+                            height="70px" width="70px" class="stroke-current group-hover:text-[#013c55] transition-colors duration-300">
+                            <defs class="">
+                                <!-- Define um padrão com uma imagem -->
+                                <pattern id="imagePattern" patternUnits="userSpaceOnUse" width="24" height="24">
+                                    <image href="/img/bento-img.jpg" x="0" y="0" width="24" height="24" preserveAspectRatio="xMidYMid slice" />
+                                </pattern>
+                            </defs>
+                            <!-- Adicione o preenchimento da imagem ao círculo maior -->
+                            <path
+                                d="M0.703125 11.25a10.546875 10.546875 0 1 0 21.09375 0 10.546875 10.546875 0 1 0 -21.09375 0Z"
+                                fill="url(#imagePattern)" stroke="none">
+                            </path>
+                        </svg>
+                    </div>
+                    
+                    <!-- DIV ONDE FICA O NOME E O USER DA CONTA -->
+                    <div class="pl-2 font-medium text-black">
+                        <div id="nomeDaPessoa" class="text-lg bold"></div>
+                        <div id="userDaPessoa" class="text-sm text-gray-500 medio"></div>
+                    </div>
+                    
+                    <!-- BOTAO PARA ACESSAR O MODAL PARA TROCAR A FOTO DE PERFIL -->
+                    <button data-modal-target="default-modal" data-modal-toggle="default-modal" class="ml-auto text-white bg-black hover:scale-110 transition-transform duration-300 transform focus:outline-none medio rounded-[20px] text-xs px-3 py-2 text-center md:text-sm md:px-5 md:py-2.5" type="button">
+                        Trocar foto
+                    </button>
+            
+                    <!-- Modal para a troca de perfil -->
+                    <div id="default-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+                        <div class="relative p-4 w-full max-w-2xl max-h-full">
+                            <!-- Modal content -->
+                            <div class="relative bg-white rounded-lg shadow">
+                                <!-- Modal header -->
+                                <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+                                    <h3 class="text-xl text-black bold">
+                                        Troque sua foto de perfil
+                                    </h3>
+                                    <button type="button" class="text-black bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-[#AADAFD] dark:hover:text-white" data-modal-hide="default-modal">
+                                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                                        </svg>
+                                        <span class="sr-only">Close modal</span>
+                                    </button>
+                                </div>
+                                <!-- Modal body -->
+                                <div class="p-4 md:p-5 space-y-4">
+                                    <div class="col-span-full">
+                                        <div class="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
+                                            <div class="text-center">
+                                                <svg class="mx-auto h-12 w-12 text-gray-300" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                                    <path fill-rule="evenodd" d="M1.5 6a2.25 2.25 0 012.25-2.25h16.5A2.25 2.25 0 0122.5 6v12a2.25 2.25 0 01-2.25 2.25H3.75A2.25 2.25 0 011.5 18V6zM3 16.06V18c0 .414.336.75.75.75h16.5A.75.75 0 0021 18v-1.94l-2.69-2.689a1.5 1.5 0 00-2.12 0l-.88.879.97.97a.75.75 0 11-1.06 1.06l-5.16-5.159a1.5 1.5 0 00-2.12 0L3 16.061zm10.125-7.81a1.125 1.125 0 112.25 0 1.125 1.125 0 01-2.25 0z" clip-rule="evenodd" />
+                                                </svg>
+                                                <div class="mt-4 flex text-sm leading-6 text-gray-600">
+                                                    <label for="file-upload" class="relative cursor-pointer rounded-md bg-white bold text-[#AADAFD] focus-within:outline-none hover:text-[#013C55]">
+                                                        <span>Carregue um arquivo</span>
+                                                        <input id="file-upload" name="file-upload" type="file" class="sr-only"> <!-- INPUT PARA ENVIAR O ARQUIVO -->
+                                                    </label>
+                                                </div>
+                                                <p class="text-xs leading-5 text-gray-600 medio">PNG, JPG, GIF até 10MB</p> <!-- LEGENDA PARA AVISAR SOBRE OS ARQUIVOS SUPORTADOS -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Modal footer -->
+                                <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">
+                                    <button id="trocarFoto" data-modal-hide="default-modal" type="button" class="rounded-[20px] bg-black px-6 py-2 text-sm text-white shadow-sm hover:bg-[#055902] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 medio">Enviar</button> <!-- BOTAO DE ENVIAR A FOTO -->
+                                    <button id="deletarFoto" data-modal-hide="default-modal" type="button" class="text-sm font-semibold leading-6 text-gray-900 bold hover:text-[#D91424] ml-2">Apagar</button> <!-- BATAO PARA APAGAR A FOTO -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- AREA ONDE APARECE AS INFORMACOES GERAIS DO USUARIO -->
+            <div class="grid md:grid-cols-2 gap-4 mb-4">
+                <div class="rounded-lg bg-white p-4 drop-shadow-lg w-full">
+                    <h1 class="text-center text-xl mb-4 text-black bold">Dados Pessoais</h1>
+                    <div class="items-center gap-4">
+                        <form class="max-w-sm mx-auto">
+                            <div class="mb-2 group">
+                                <label for="name"
+                                    class="block text-base mb-2 text-black transition duration-300 ease group-hover:text-[#AADAFD] group-focus-within:text-[#AADAFD] medio">Nome completo
+                                </label>
+                                <input id="nameProfile" class="w-full bg-transparent placeholder:text-gray-200 text-slate-700 text-sm border-2 border-black rounded-md px-3 py-3 transition duration-300 ease focus:outline-none focus:border-[#AADAFD] focus:ring-0 focus:text-[#AADAFD] group-hover:border-[#AADAFD] text-black hover:text-[#AADAFD] book"/> <!-- INPUT QUE MOSTRA O NOME DO USUARIO E PERMITE ELE ALTERAR O NOME -->
+                            </div>
+        
+                            <div class="mb-2 group">
+                                <label for="email"
+                                    class="block text-base mb-2 text-black transition duration-300 ease group-hover:text-[#AADAFD] group-focus-within:text-[#AADAFD] medio">E-mail</label>
+                                <input id="emailProfile" class="w-full bg-transparent placeholder:text-gray-200 text-slate-700 text-sm border-2 border-black rounded-md px-3 py-3 transition duration-300 ease focus:outline-none focus:border-[#AADAFD] focus:ring-0 focus:text-[#AADAFD] group-hover:border-[#AADAFD] text-black hover:text-[#AADAFD] book" readonly/> <!-- INPUT QUE MOSTRA O EMAIL DO USUARIO -->
+                            </div>
+        
+                            <div class="mb-2 group">
+                                <label for="cpfProfile"
+                                    class="block text-base mb-2 text-black transition duration-300 ease group-hover:text-[#AADAFD] group-focus-within:text-[#AADAFD] medio">CPF</label>
+                                <input id="cpfProfile" class="w-full bg-transparent placeholder:text-gray-200 text-slate-700 text-sm border-2 border-black rounded-md px-3 py-3 transition duration-300 ease focus:outline-none focus:border-[#AADAFD] focus:ring-0 focus:text-[#AADAFD] group-hover:border-[#AADAFD] text-black hover:text-[#AADAFD] book"/> <!-- INPUT QUE MOSTRA O CPF DO USUARIO -->
+                            </div>
+        
+                            <div class="mb-2 group">
+                                <label for="telephone"
+                                    class="block text-base mb-2 text-black transition duration-300 ease group-hover:text-[#AADAFD] group-focus-within:text-[#AADAFD] medio">Data de nascimento</label>
+                                <input id="nascProfile" class="w-full bg-transparent placeholder:text-gray-200 text-slate-700 text-sm border-2 border-black rounded-md px-3 py-3 transition duration-300 ease focus:outline-none focus:border-[#AADAFD] focus:ring-0 focus:text-[#AADAFD] group-hover:border-[#AADAFD] text-black hover:text-[#AADAFD] book"/> <!-- INPUT QUE MOSTRA A DATA DE NASC DO USUARIO E PERMITE ELE ALTERAR A DATA -->
+                            </div>
+        
+                            <div class="mb-2 group">
+                                <label for="telephone"
+                                    class="block text-base mb-2 text-black transition duration-300 ease group-hover:text-[#AADAFD] group-focus-within:text-[#AADAFD] medio">Telefone</label>
+                                <input id="telProfile" class="w-full bg-transparent placeholder:text-gray-200 text-slate-700 text-sm border-2 border-black rounded-md px-3 py-3 transition duration-300 ease focus:outline-none focus:border-[#AADAFD] focus:ring-0 focus:text-[#AADAFD] group-hover:border-[#AADAFD] text-black hover:text-[#AADAFD] book"/> <!-- INPUT QUE MOSTRA O TELEFONE DO USUARIO E PERMITE ELE ALTERAR O TELEFONE -->
+                            </div>
+
+                            <!-- BOTAO PARA SALVAR AS ALTERACOES SE ELAS FORAM FEITAS -->
+                            <button id="saveButton" class="mt-2 lg:mb-4 text-white bg-black hover:scale-95 transition-transform duration-300 transform focus:outline-none focus:ring-blue-300 font-medium rounded-[20px] text-md w-full sm:w-full px-5 py-2.5 text-center bold">
+                                Salvar
+                            </button>
+                        </form>
+                    </div>
+                </div>
+        
+                <!-- AREA ONDE APARECE AS CONFIGURACOES DE SENHA DO USUARIO -->
+                <div class="rounded-lg bg-white p-4 drop-shadow-lg">
+                    <h1 class="text-center text-xl bold mb-4 text-black">Senha</h1>
+                    <div class="items-center gap-4">
+                        <form class="max-w-sm mx-auto">
+                            <div class="mb-2 relative group">
+                                <label for="password3" class="block text-base mb-2 text-black transition duration-300 ease group-hover:text-[#AADAFD] group-focus-within:text-[#AADAFD] medio">Senha atual</label>
+                                <input id="passwordProfile" type="password" class="w-full bg-transparent  text-sm border-2 border-black rounded-md px-3 py-3 transition duration-300 ease focus:outline-none group-focus-within:border-[#AADAFD] focus:ring-0 group-focus-within:text-[#AADAFD] group-hover:border-[#AADAFD] group-hover:text-[#AADAFD] book" readonly/> <!-- INPUT MOSTRA A SENHA DO USUARIO ESCONDIDA -->
+                            </div>
+                            <!-- DIV PARA ALTERAR A SENHA CASO O USUARIO QUEIRA -->
+                            <h1 class="text-center text-xl bold mb-4 mt-4 text-black">Mudar senha</h1>
+                            <div class="mb-2 group">
+                                <label for="password" class="block text-base mb-2 text-black transition duration-300 ease group-hover:text-[#AADAFD] group-focus-within:text-[#AADAFD] medio">Digite sua senha</label>
+                                <div class="relative">
+                                    <div class="w-full max-w-sm min-w-[200px]">
+                                        <input id="yourPassword" class="w-full bg-transparent  text-sm border-2 border-black rounded-md px-3 py-3 transition duration-300 ease focus:outline-none group-focus-within:border-[#AADAFD] focus:ring-0 group-focus-within:text-[#AADAFD] group-hover:border-[#AADAFD] group-hover:text-[#AADAFD] book" type="password"/> <!-- INPUT PARA O USUARIO DIGITAR A SENHA ATUAL DELE -->
+
+                                        <!-- BOTAO PARA TORNAR A SENHA VISIVEL E NAO VISIVEL -->
+                                        <button type="button" onclick="togglePassword('yourPassword', 'visibleIcon5', 'hiddenIcon5')" class="absolute right-3 top-1/2 transform -translate-y-1/2 transition-transform duration-300 transform">
+                                            <div id="visibleIcon5" class="h-8 hidden fill-current text-black group-hover:text-[#AADAFD] group-focus-within:text-[#AADAFD] duration-300 transform">
+                                                <svg width="33" height="33" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                    <rect x="0" fill="none" width="24" height="24"/>
+                                                    <path d="M12 6C5.188 6 1 12 1 12s4.188 6 11 6 11-6 11-6-4.188-6-11-6zm0 10c-3.943 0-6.926-2.484-8.38-4 1.04-1.085 2.863-2.657 5.255-3.47C8.335 9.214 8 10.064 8 11c0 2.21 1.79 4 4 4s4-1.79 4-4c0-.937-.335-1.787-.875-2.47 2.393.813 4.216 2.386 5.254 3.47-1.456 1.518-4.438 4-8.38 4z"/>
+                                                </svg>
+                                            </div>
+                                            <div id="hiddenIcon5" class="fill-current text-black group-hover:text-[#AADAFD] group-focus-within:text-[#AADAFD] duration-300 transform">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="33" height="33" viewBox="0 0 3333 3333">
+                                                    <path class="cls-1" d="M1617,833c498.41-5.423,824.78,167.18,1113,373,49.94,35.66,94.6,78.05,142,116,75.04,60.08,157.88,141.11,218,216,33.98,42.33,77.63,80.71,105,129q-33.495,42.99-67,86-47.49,52.995-95,106-26.49,25.995-53,52c-50.61,50.61-103.11,99.71-160,144-46.18,35.96-91.62,73.88-140,108-161.59,113.96-340.49,203.23-551,269-201.72,63.03-513.72,95.28-755,42-142.05-31.37-267.93-68.96-387-121-189.892-82.99-346.275-197.84-498-318-49.421-39.14-94.708-82.71-139-127q-25-24.495-50-49l-95-106q-33.5-42.99-67-86v-1q33.5-42.99,67-86l95-106q25-24.495,50-49c44.292-44.29,89.565-87.88,139-127,50.867-40.25,100.367-83.14,154-121,135.91-95.94,284.954-175.87,452-241,100.31-39.111,208.92-61.987,326-85l135-15Z"/>
+                                                </svg>
+                                            </div>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+        
+                            <div class="mb-2 relative group">
+                                <label for="password4" class="block text-base mb-2 text-black transition duration-300 ease group-hover:text-[#AADAFD] group-focus-within:text-[#AADAFD] medio">Digite sua nova senha</label>
+                                <div class="relative">
+                                    <div class="w-full max-w-sm min-w-[200px]">
+                                        <input id="newPassword" class="w-full bg-transparent  text-sm border-2 border-black rounded-md px-3 py-3 transition duration-300 ease focus:outline-none group-focus-within:border-[#AADAFD] focus:ring-0 group-focus-within:text-[#AADAFD] group-hover:border-[#AADAFD] group-hover:text-[#AADAFD] book" type="password"/> <!-- INPUT PARA O USUARIO DIGITAR A NOVA SENHA -->
+
+                                        <!-- BOTAO PARA TORNAR A SENHA VISIVEL E NAO VISIVEL -->
+                                        <button type="button" onclick="togglePassword('newPassword', 'visibleIcon6', 'hiddenIcon6')" class="absolute right-3 top-1/2 transform -translate-y-1/2 transition-transform duration-300 transform">
+                                            <div id="visibleIcon6" class="h-8 hidden fill-current text-black group-hover:text-[#AADAFD] group-focus-within:text-[#AADAFD] duration-300 transform">
+                                                <svg width="33" height="33" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                    <rect x="0" fill="none" width="24" height="24"/>
+                                                    <path d="M12 6C5.188 6 1 12 1 12s4.188 6 11 6 11-6 11-6-4.188-6-11-6zm0 10c-3.943 0-6.926-2.484-8.38-4 1.04-1.085 2.863-2.657 5.255-3.47C8.335 9.214 8 10.064 8 11c0 2.21 1.79 4 4 4s4-1.79 4-4c0-.937-.335-1.787-.875-2.47 2.393.813 4.216 2.386 5.254 3.47-1.456 1.518-4.438 4-8.38 4z"/>
+                                                </svg>
+                                            </div>
+                                            <div id="hiddenIcon6" class="fill-current text-black group-hover:text-[#AADAFD] group-focus-within:text-[#AADAFD] duration-300 transform">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="33" height="33" viewBox="0 0 3333 3333">
+                                                    <path class="cls-1" d="M1617,833c498.41-5.423,824.78,167.18,1113,373,49.94,35.66,94.6,78.05,142,116,75.04,60.08,157.88,141.11,218,216,33.98,42.33,77.63,80.71,105,129q-33.495,42.99-67,86-47.49,52.995-95,106-26.49,25.995-53,52c-50.61,50.61-103.11,99.71-160,144-46.18,35.96-91.62,73.88-140,108-161.59,113.96-340.49,203.23-551,269-201.72,63.03-513.72,95.28-755,42-142.05-31.37-267.93-68.96-387-121-189.892-82.99-346.275-197.84-498-318-49.421-39.14-94.708-82.71-139-127q-25-24.495-50-49l-95-106q-33.5-42.99-67-86v-1q33.5-42.99,67-86l95-106q25-24.495,50-49c44.292-44.29,89.565-87.88,139-127,50.867-40.25,100.367-83.14,154-121,135.91-95.94,284.954-175.87,452-241,100.31-39.111,208.92-61.987,326-85l135-15Z"/>
+                                                </svg>
+                                            </div>
+                                        </button>
+            
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mb-2 relative group">
+                                <label for="password4" class="block text-base mb-2 text-black transition duration-300 ease group-hover:text-[#AADAFD] group-focus-within:text-[#AADAFD] medio">Confirme a senha</label>
+                                <div class="relative">
+                                    <div class="w-full max-w-sm min-w-[200px]">
+                                        <input id="confirmPassword" class="w-full bg-transparent  text-sm border-2 border-black rounded-md px-3 py-3 transition duration-300 ease focus:outline-none group-focus-within:border-[#AADAFD] focus:ring-0 group-focus-within:text-[#AADAFD] group-hover:border-[#AADAFD] group-hover:text-[#AADAFD] book" type="password"/> <!-- INPUT PARA O USUARIO CONFIRMAR SUA NOVA SENHA -->
+
+                                        <!-- BOTAO PARA TORNAR A SENHA VISIVEL E NAO VISIVEL -->
+                                        <button type="button" onclick="togglePassword('confirmPassword', 'visibleIcon7', 'hiddenIcon7')" class="absolute right-3 top-1/2 transform -translate-y-1/2 transition-transform duration-300 transform">
+                                            <div id="visibleIcon7" class="h-8 hidden fill-current text-black group-hover:text-[#AADAFD] group-focus-within:text-[#AADAFD] duration-300 transform">
+                                                <svg width="33" height="33" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                    <rect x="0" fill="none" width="24" height="24"/>
+                                                    <path d="M12 6C5.188 6 1 12 1 12s4.188 6 11 6 11-6 11-6-4.188-6-11-6zm0 10c-3.943 0-6.926-2.484-8.38-4 1.04-1.085 2.863-2.657 5.255-3.47C8.335 9.214 8 10.064 8 11c0 2.21 1.79 4 4 4s4-1.79 4-4c0-.937-.335-1.787-.875-2.47 2.393.813 4.216 2.386 5.254 3.47-1.456 1.518-4.438 4-8.38 4z"/>
+                                                </svg>
+                                            </div>
+                                            <div id="hiddenIcon7" class="fill-current text-black group-hover:text-[#AADAFD] group-focus-within:text-[#AADAFD] duration-300 transform">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="33" height="33" viewBox="0 0 3333 3333">
+                                                    <path class="cls-1" d="M1617,833c498.41-5.423,824.78,167.18,1113,373,49.94,35.66,94.6,78.05,142,116,75.04,60.08,157.88,141.11,218,216,33.98,42.33,77.63,80.71,105,129q-33.495,42.99-67,86-47.49,52.995-95,106-26.49,25.995-53,52c-50.61,50.61-103.11,99.71-160,144-46.18,35.96-91.62,73.88-140,108-161.59,113.96-340.49,203.23-551,269-201.72,63.03-513.72,95.28-755,42-142.05-31.37-267.93-68.96-387-121-189.892-82.99-346.275-197.84-498-318-49.421-39.14-94.708-82.71-139-127q-25-24.495-50-49l-95-106q-33.5-42.99-67-86v-1q33.5-42.99,67-86l95-106q25-24.495,50-49c44.292-44.29,89.565-87.88,139-127,50.867-40.25,100.367-83.14,154-121,135.91-95.94,284.954-175.87,452-241,100.31-39.111,208.92-61.987,326-85l135-15Z"/>
+                                                </svg>
+                                            </div>
+                                        </button>
+            
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- BOTAO PARA SALVAR AS ALTERACOES SE ELAS FORAM FEITAS -->
+                            <button id="changePasswordButton" class="mt-2 lg:mb-4 text-white bg-black hover:scale-95 transition-transform duration-300 transform  focus:outline-none focus:ring-blue-300 font-medium rounded-[20px] text-md w-full sm:w-full px-5 py-2.5 text-center bold">Salvar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- FIM DA SECTION -->
+
+    <!-- COMEÇO DO FOOTER -->
+    <footer class="bg-white flex items-center justify-center">
+        <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
+            <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8"/>
+            <div class="md:flex md:justify-between">
+            <!-- AREA PARA O MAPA DO SITE -->
+            <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-4">
+                <div>
+                    <h2 class="mb-6 text-md text-black font-medium bold">principal</h2>
+                    <ul class="text-gray-500 dark:text-gray-400 font-medium medio">
+                        <li class="mb-4">
+                            <a href="index.html" class="hover:underline">home</a>  <!-- LINK DIRECIONANDO PARA A HOME DO SITE -->
+                        </li>
+                        </li>
+                        <li>
+                            <a href="perfil.html" data-auth="signed-in">conta</a> <!-- LINK DIRECIONANDO PARA A PAGINA DE PERFIL -->
+                        </li>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h2 class="mb-6 text-md text-black font-medium bold">siga-nos</h2>
+                    <ul class="text-gray-500 dark:text-gray-400 font-medium medio">
+                        <li class="mb-4">
+                            <a href="https://www.instagram.com/" class="hover:underline ">instagram</a> <!-- LINK DIRECIONANDO PARA O INSTAGRAM -->
+                        </li>
+                        </li>
+                        <li>
+                            <a href="https://www.youtube.com/" class="hover:underline">youtube</a> <!-- LINK DIRECIONANDO PARA O YOUTUBE -->
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h2 class="mb-6 text-md text-black font-medium bold">app</h2>
+                    <ul class="text-gray-500 dark:text-gray-400 font-medium medio">
+                        <li class="mb-4">
+                            <a href="index.html" class="hover:underline">instalar</a> <!-- LINK DIRECIONANDO PARA A HOME DO SITE ONDE O BOTAO DE DOWNLOAD FICA -->
+                        </li>
+                        <li>
+                            <a href="vender.html" class="hover:underline" data-page="vender">vendedor</a> <!-- LINK DIRECIONANDO PARA A PAGINA DE "QUERO VENDER"-->
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h2 class="mb-6 text-md text-black font-medium bold">outros</h2>
+                    <ul class="text-gray-500 dark:text-gray-400 font-medium medio">
+                        <li class="mb-4">
+                            <a href="/sobrenos.html" class="hover:underline">sobre nós</a> <!-- LINK DIRECIONANDO PARA A PAGINA "SOBRE NÓS" -->
+                        </li>
+                        <li>
+                            <a href="/suporte.html" class="hover:underline">suporte</a> <!-- LINK DIRECIONANDO PARA A PAGINA "SUPORTE" -->
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8"/>
+            
+        
+        <div class="sm:flex sm:items-center sm:justify-between">
+            <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400 book">Weave © 2024. Todos os direitos reservados.
+            </span>
+            <div class="flex mt-4 sm:justify-center sm:mt-0">
+                <!-- LINK DIRECIONANDO PARA O FACEBOOK -->
+                <a href="https://www.facebook.com/?locale=pt_BR" class="text-gray-500 hover:text-gray-900 dark:hover:text-white hover:scale-125 transform transition-transform">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none">
+                        <path d="M22.9167 12.5002C22.9167 6.75016 18.25 2.0835 12.5 2.0835C6.75004 2.0835 2.08337 6.75016 2.08337 12.5002C2.08337 17.5418 5.66671 21.7397 10.4167 22.7085V15.6252H8.33337V12.5002H10.4167V9.896C10.4167 7.88558 12.0521 6.25016 14.0625 6.25016H16.6667V9.37516H14.5834C14.0105 9.37516 13.5417 9.84391 13.5417 10.4168V12.5002H16.6667V15.6252H13.5417V22.8647C18.8021 22.3439 22.9167 17.9064 22.9167 12.5002Z" fill="#B3B3B3"/>
+                    </svg>
+                    <span class="sr-only">Facebook page</span>
+                </a>
+                <!-- LINK DIRECIONANDO PARA O INSTAGRAM -->
+                <a href="https://www.instagram.com/" class="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5 hover:scale-125 transform transition-transform">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none">
+                        <path d="M8.12504 2.0835H16.875C20.2084 2.0835 22.9167 4.79183 22.9167 8.12516V16.8752C22.9167 18.4775 22.2802 20.0142 21.1471 21.1473C20.0141 22.2803 18.4774 22.9168 16.875 22.9168H8.12504C4.79171 22.9168 2.08337 20.2085 2.08337 16.8752V8.12516C2.08337 6.52281 2.71991 4.98609 3.85294 3.85306C4.98597 2.72003 6.52269 2.0835 8.12504 2.0835ZM7.91671 4.16683C6.92215 4.16683 5.96832 4.56192 5.26506 5.26518C4.5618 5.96844 4.16671 6.92227 4.16671 7.91683V17.0835C4.16671 19.1564 5.84379 20.8335 7.91671 20.8335H17.0834C18.0779 20.8335 19.0318 20.4384 19.735 19.7351C20.4383 19.0319 20.8334 18.0781 20.8334 17.0835V7.91683C20.8334 5.84391 19.1563 4.16683 17.0834 4.16683H7.91671ZM17.9688 5.72933C18.3141 5.72933 18.6453 5.86651 18.8895 6.1107C19.1337 6.35489 19.2709 6.68608 19.2709 7.03141C19.2709 7.37675 19.1337 7.70794 18.8895 7.95212C18.6453 8.19631 18.3141 8.3335 17.9688 8.3335C17.6235 8.3335 17.2923 8.19631 17.0481 7.95212C16.8039 7.70794 16.6667 7.37675 16.6667 7.03141C16.6667 6.68608 16.8039 6.35489 17.0481 6.1107C17.2923 5.86651 17.6235 5.72933 17.9688 5.72933ZM12.5 7.29183C13.8814 7.29183 15.2061 7.84056 16.1829 8.81731C17.1596 9.79407 17.7084 11.1188 17.7084 12.5002C17.7084 13.8815 17.1596 15.2063 16.1829 16.183C15.2061 17.1598 13.8814 17.7085 12.5 17.7085C11.1187 17.7085 9.79394 17.1598 8.81719 16.183C7.84044 15.2063 7.29171 13.8815 7.29171 12.5002C7.29171 11.1188 7.84044 9.79407 8.81719 8.81731C9.79394 7.84056 11.1187 7.29183 12.5 7.29183ZM12.5 9.37516C11.6712 9.37516 10.8764 9.7044 10.2903 10.2905C9.70428 10.8765 9.37504 11.6714 9.37504 12.5002C9.37504 13.329 9.70428 14.1238 10.2903 14.7099C10.8764 15.2959 11.6712 15.6252 12.5 15.6252C13.3288 15.6252 14.1237 15.2959 14.7097 14.7099C15.2958 14.1238 15.625 13.329 15.625 12.5002C15.625 11.6714 15.2958 10.8765 14.7097 10.2905C14.1237 9.7044 13.3288 9.37516 12.5 9.37516Z" fill="#B3B3B3"/>
+                    </svg>
+                    <span class="sr-only">Intagram page</span>
+                </a>
+                <!-- LINK DIRECIONANDO PARA O X -->
+                <a href="https://twitter.com/?lang=pt-br" class="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5 hover:scale-125 transform transition-transform">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none">
+                        <path d="M18.4907 3.125H21.6855L14.7063 11.0677L22.9167 21.875H16.4875L11.4532 15.3198L5.69171 21.875H2.49379L9.95942 13.3802L2.08337 3.125H8.67504L13.2271 9.11667L18.4907 3.125ZM17.3698 19.9708H19.1407L7.71254 4.92917H5.81254L17.3698 19.9708Z" fill="#B3B3B3"/>
+                    </svg>
+                    <span class="sr-only">X account</span>
+                </a>
+                <!-- LINK DIRECIONANDO PARA O PINTEREST -->
+                <a href="https://br.pinterest.com/" class="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5 hover:scale-125 transform transition-transform">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none">
+                        <path d="M9.41671 22.4377C10.4167 22.7397 11.4271 22.9168 12.5 22.9168C15.2627 22.9168 17.9122 21.8194 19.8657 19.8659C21.8192 17.9124 22.9167 15.2628 22.9167 12.5002C22.9167 11.1322 22.6473 9.77768 22.1238 8.51388C21.6003 7.25007 20.833 6.10174 19.8657 5.13447C18.8985 4.16719 17.7501 3.3999 16.4863 2.87642C15.2225 2.35293 13.868 2.0835 12.5 2.0835C11.1321 2.0835 9.77756 2.35293 8.51375 2.87642C7.24995 3.3999 6.10162 4.16719 5.13434 5.13447C3.18084 7.08797 2.08337 9.73749 2.08337 12.5002C2.08337 16.9272 4.86462 20.7293 8.79171 22.2293C8.69796 21.4168 8.60421 20.0731 8.79171 19.146L9.98962 14.0002C9.98962 14.0002 9.68754 13.396 9.68754 12.4377C9.68754 11.0002 10.5834 9.92725 11.6042 9.92725C12.5 9.92725 12.9167 10.5835 12.9167 11.4272C12.9167 12.3231 12.323 13.6043 12.0209 14.8335C11.8438 15.8543 12.5625 16.7502 13.6042 16.7502C15.4584 16.7502 16.8959 14.771 16.8959 11.9793C16.8959 9.47933 15.1042 7.771 12.5313 7.771C9.59379 7.771 7.86462 9.9585 7.86462 12.2606C7.86462 13.1564 8.15629 14.0627 8.63546 14.6564C8.72921 14.7189 8.72921 14.8022 8.69796 14.9585L8.39587 16.0939C8.39587 16.271 8.28129 16.3335 8.10421 16.2085C6.77087 15.6252 6.00004 13.7293 6.00004 12.1981C6.00004 8.90641 8.33337 5.91683 12.8334 5.91683C16.4167 5.91683 19.2084 8.48975 19.2084 11.9064C19.2084 15.4897 16.9896 18.3647 13.8125 18.3647C12.8021 18.3647 11.8125 17.8231 11.4584 17.1877L10.7605 19.6564C10.5209 20.5522 9.86462 21.7502 9.41671 22.4689V22.4377Z" fill="#B3B3B3"/>
+                    </svg>
+                    <span class="sr-only">Pinterest account</span>
+                </a>
+                <!-- LINK DIRECIONANDO PARA O YOUTUBE -->
+                <a href="https://www.youtube.com/" class="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5 hover:scale-125 transform transition-transform">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none">
+                        <path d="M10.4167 15.6252L15.823 12.5002L10.4167 9.37516V15.6252ZM22.4584 7.46891C22.5938 7.9585 22.6875 8.61475 22.75 9.44808C22.823 10.2814 22.8542 11.0002 22.8542 11.6252L22.9167 12.5002C22.9167 14.7814 22.75 16.4585 22.4584 17.5314C22.198 18.4689 21.5938 19.0731 20.6563 19.3335C20.1667 19.4689 19.2709 19.5627 17.8959 19.6252C16.5417 19.6981 15.3021 19.7293 14.1563 19.7293L12.5 19.7918C8.13546 19.7918 5.41671 19.6252 4.34379 19.3335C3.40629 19.0731 2.80212 18.4689 2.54171 17.5314C2.40629 17.0418 2.31254 16.3856 2.25004 15.5522C2.17712 14.7189 2.14587 14.0002 2.14587 13.3752L2.08337 12.5002C2.08337 10.2189 2.25004 8.54183 2.54171 7.46891C2.80212 6.53141 3.40629 5.92725 4.34379 5.66683C4.83337 5.53141 5.72921 5.43766 7.10421 5.37516C8.45837 5.30225 9.69796 5.271 10.8438 5.271L12.5 5.2085C16.8646 5.2085 19.5834 5.37516 20.6563 5.66683C21.5938 5.92725 22.198 6.53141 22.4584 7.46891Z" fill="#B3B3B3"/>
+                    </svg>
+                    <span class="sr-only">Youtube account</span>
+                </a>
+            </div>
+        </div>
+        </div>
+    </footer>
+
+    <script type="module" src="/js/logado.js"></script>
+    <script src="/js/mask2.js"></script>
+    <!-- AREA PARA LINKAR OS ARQUIVOS JAVASCRIPT QUE FAZEM O FUNCIONAMENTO DO BACKEND E DAS MODIFICACOES DO SITE -->
+    <script type="module" src="/js/perfil.js"></script> <!-- LINK DO MODULO DO PERFIL -->
+    <script type="module" src="/js/logout.js"></script>  <!-- LINK DO MODULO DE DESLOGAR -->
+    <script type="module" src="/js/auth-guard.js"></script> <!-- LINK DO MODULO DE AUTH -->
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script> <!-- LINK DO FLOWBITE -->
+    <script src="/js/app.js"></script> <!-- LINK DO APP.JS ONDE ESTAO AS MODIFICACOES FRONTEND -->
+</body>
+</html>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/css/style.css">
+    <link id="favicon" rel="icon" href="/img/logo-desenho-preta.ico">
+    <title>Logar</title>
+</head>
+<body>
+    <div class="flex justify-center items-center h-screen bg-gradient-to-b from-[#D91424] to-[#EAECD7]">
+        <div class="w-96 p-6 rounded-md bg">
+            <a href="index.html"><img class="h-12 mx-auto mt-[30px] mb-[25px] block" src="/img/logo-desenho.svg" alt=""></a>
+            <h1 class="text-3xl block text-center text-white mb-[25px] bolder ">
+                <i class="fa-solid fa-user"></i>Entrar na Weave
+            </h1>
+            <div class="mt-5">
+                <button id="AcionarOutro" class="relative flex items-center justify-center border-2 border-white bg-white text-black w-full h-[45px] rounded-[20px]        hover:border-white medio hover:scale-105 transform transition-transform ">
+                    <img src="/img/Google Color Icon.svg" class="absolute left-4 h-6" alt="">
+                    Continuar com o Google
+                </button>
+                
+            </div>
+            <hr class="mt-5 border-white">
+
+
+            <form class="">
+                <div class="mt-3 group">  
+                    <label for="emailLogin" class="block text-base mb-2 text-white medio group-hover:text-black group-focus-within:text-black transition duration-300 ease">E-mail</label>
+                    <div class="w-full max-w-sm min-w-[200px] mb-4">
+                        <input id="emailLogin" name="emailLogin" class="w-full bg-transparent text-sm border-2 border-white rounded-md px-3 py-3 focus:outline-none  group-hover:border-black group-focus-within:text-black group-focus-within:border-black group-hover:text-black focus-within:border-white text-white book transition duration-300 ease"/>
+                    </div>  
+                </div>
+
+                <div class="mt-3 group">
+                    <label for="senhaLogin" class="block text-base text-white medio group-hover:text-black group-focus-within:text-black transition duration-300 ease">Senha</label>
+                    <div class="w-full max-w-sm min-w-[200px]">
+                        <div class="relative">
+                            <input id="senhaLogin" name="senhaLogin" class="w-full bg-transparent text-slate-700 text-sm border-2 border-white rounded-md px-3 py-3 transition duration-300 ease focus:outline-none  group-hover:border-black group-focus-within:text-black group-focus-within:border-black group-hover:text-black focus-within:border-white text-white book focus:ring-0" type="password"/>
+                            <button type="button" onclick="togglePassword('senhaLogin', 'visibleIcon1', 'hiddenIcon1')" class="absolute right-3 top-1/2 transform -translate-y-1/2 transition-transform duration-300 transform">
+                                <div id="visibleIcon1" class="h-8 hidden fill-current text-white group-hover:text-black group-focus-within:text-black transition duration-300 ease">
+                                    <svg width="33" height="33" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <rect x="0" fill="none" width="24" height="24"/>
+                                        <path d="M12 6C5.188 6 1 12 1 12s4.188 6 11 6 11-6 11-6-4.188-6-11-6zm0 10c-3.943 0-6.926-2.484-8.38-4 1.04-1.085 2.863-2.657 5.255-3.47C8.335 9.214 8 10.064 8 11c0 2.21 1.79 4 4 4s4-1.79 4-4c0-.937-.335-1.787-.875-2.47 2.393.813 4.216 2.386 5.254 3.47-1.456 1.518-4.438 4-8.38 4z"/>
+                                    </svg>
+                                </div>
+                                <div id="hiddenIcon1" class="fill-current text-white group-hover:text-black group-focus-within:text-black transition duration-300 ease">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="33" height="33" viewBox="0 0 3333 3333">
+                                        <path class="cls-1" d="M1617,833c498.41-5.423,824.78,167.18,1113,373,49.94,35.66,94.6,78.05,142,116,75.04,60.08,157.88,141.11,218,216,33.98,42.33,77.63,80.71,105,129q-33.495,42.99-67,86-47.49,52.995-95,106-26.49,25.995-53,52c-50.61,50.61-103.11,99.71-160,144-46.18,35.96-91.62,73.88-140,108-161.59,113.96-340.49,203.23-551,269-201.72,63.03-513.72,95.28-755,42-142.05-31.37-267.93-68.96-387-121-189.892-82.99-346.275-197.84-498-318-49.421-39.14-94.708-82.71-139-127q-25-24.495-50-49l-95-106q-33.5-42.99-67-86v-1q33.5-42.99,67-86l95-106q25-24.495,50-49c44.292-44.29,89.565-87.88,139-127,50.867-40.25,100.367-83.14,154-121,135.91-95.94,284.954-175.87,452-241,100.31-39.111,208.92-61.987,326-85l135-15Z"/>
+                                    </svg>
+                                </div>
+                            </button>
+                        </div>
+                    </div>   
+                </div>
+                <a href="#">
+                    <button id="btnForgotPassword" class="text-white medio underline">Esqueci minha senha</button>
+                </a>
+                
+                <div class="mt-5">
+                    <button type="button" id="btnLogin" class="border-2 border-white bg-white text-black mb-[12px] py-1 w-full h-[45px] rounded-[20px] hover:bg-black hover:border-black hover:text-white font-semibold medio ">
+                        Enviar
+                    </button>
+                </div>
+
+                <h1 class="text-[1rem] block text-center text-[#D91424] mt-[25px] medio">
+                    Não possui conta? <a class="underline text-[#D91424]" href="cadastro.html">Faça Cadastro aqui.</a>
+                </h1>
+            </form>
+        </div>
+    </div>
+
+    <footer class="bg-white flex items-center justify-center">
+        <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
+            <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8"/>
+            <div class="md:flex md:justify-between">
+            <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-4">
+                <div>
+                    <h2 class="mb-6 text-md text-black font-medium bold">principal</h2>
+                    <ul class="text-gray-500 dark:text-gray-400 font-medium medio">
+                        <li class="mb-4">
+                            <a href="index.html" class="hover:underline">home</a>
+                        </li>
+                        <li>
+                            <a href="perfil.html" class="hover:underline" data-auth="signed-in">perfil</a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h2 class="mb-6 text-md text-black font-medium bold">siga-nos</h2>
+                    <ul class="text-gray-500 dark:text-gray-400 font-medium medio">
+                        <li class="mb-4">
+                            <a href="https://www.instagram.com/" class="hover:underline ">instagram</a>
+                        </li>
+                        <li>
+                            <a href="https://www.youtube.com/" class="hover:underline">youtube</a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h2 class="mb-6 text-md text-black font-medium bold">app</h2>
+                    <ul class="text-gray-500 dark:text-gray-400 font-medium medio">
+                        <li class="mb-4">
+                            <a href="index.html" class="hover:underline">instalar</a>
+                        </li>
+                        <li>
+                            <a href="vender.html" class="hover:underline" data-auth="signed-in">vendedor</a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h2 class="mb-6 text-md text-black font-medium bold">outros</h2>
+                    <ul class="text-gray-500 dark:text-gray-400 font-medium medio">
+                        <li class="mb-4">
+                            <a href="sobrenos.html" class="hover:underline">sobre nós</a>
+                        </li>
+                        <li>
+                            <a href="suporte.html" class="hover:underline">suporte</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8"/>
+            
+        
+        <div class="sm:flex sm:items-center sm:justify-between">
+            <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400 book">Weave © 2024. Todos os direitos reservados.
+            </span>
+            <div class="flex mt-4 sm:justify-center sm:mt-0">
+                <a href="https://www.facebook.com/?locale=pt_BR" class="text-gray-500 hover:text-gray-900 dark:hover:text-white hover:scale-125 transform transition-transform">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none">
+                        <path d="M22.9167 12.5002C22.9167 6.75016 18.25 2.0835 12.5 2.0835C6.75004 2.0835 2.08337 6.75016 2.08337 12.5002C2.08337 17.5418 5.66671 21.7397 10.4167 22.7085V15.6252H8.33337V12.5002H10.4167V9.896C10.4167 7.88558 12.0521 6.25016 14.0625 6.25016H16.6667V9.37516H14.5834C14.0105 9.37516 13.5417 9.84391 13.5417 10.4168V12.5002H16.6667V15.6252H13.5417V22.8647C18.8021 22.3439 22.9167 17.9064 22.9167 12.5002Z" fill="#B3B3B3"/>
+                    </svg>
+                    <span class="sr-only">Facebook page</span>
+                </a>
+                <a href="https://www.instagram.com/" class="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5 hover:scale-125 transform transition-transform">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none">
+                        <path d="M8.12504 2.0835H16.875C20.2084 2.0835 22.9167 4.79183 22.9167 8.12516V16.8752C22.9167 18.4775 22.2802 20.0142 21.1471 21.1473C20.0141 22.2803 18.4774 22.9168 16.875 22.9168H8.12504C4.79171 22.9168 2.08337 20.2085 2.08337 16.8752V8.12516C2.08337 6.52281 2.71991 4.98609 3.85294 3.85306C4.98597 2.72003 6.52269 2.0835 8.12504 2.0835ZM7.91671 4.16683C6.92215 4.16683 5.96832 4.56192 5.26506 5.26518C4.5618 5.96844 4.16671 6.92227 4.16671 7.91683V17.0835C4.16671 19.1564 5.84379 20.8335 7.91671 20.8335H17.0834C18.0779 20.8335 19.0318 20.4384 19.735 19.7351C20.4383 19.0319 20.8334 18.0781 20.8334 17.0835V7.91683C20.8334 5.84391 19.1563 4.16683 17.0834 4.16683H7.91671ZM17.9688 5.72933C18.3141 5.72933 18.6453 5.86651 18.8895 6.1107C19.1337 6.35489 19.2709 6.68608 19.2709 7.03141C19.2709 7.37675 19.1337 7.70794 18.8895 7.95212C18.6453 8.19631 18.3141 8.3335 17.9688 8.3335C17.6235 8.3335 17.2923 8.19631 17.0481 7.95212C16.8039 7.70794 16.6667 7.37675 16.6667 7.03141C16.6667 6.68608 16.8039 6.35489 17.0481 6.1107C17.2923 5.86651 17.6235 5.72933 17.9688 5.72933ZM12.5 7.29183C13.8814 7.29183 15.2061 7.84056 16.1829 8.81731C17.1596 9.79407 17.7084 11.1188 17.7084 12.5002C17.7084 13.8815 17.1596 15.2063 16.1829 16.183C15.2061 17.1598 13.8814 17.7085 12.5 17.7085C11.1187 17.7085 9.79394 17.1598 8.81719 16.183C7.84044 15.2063 7.29171 13.8815 7.29171 12.5002C7.29171 11.1188 7.84044 9.79407 8.81719 8.81731C9.79394 7.84056 11.1187 7.29183 12.5 7.29183ZM12.5 9.37516C11.6712 9.37516 10.8764 9.7044 10.2903 10.2905C9.70428 10.8765 9.37504 11.6714 9.37504 12.5002C9.37504 13.329 9.70428 14.1238 10.2903 14.7099C10.8764 15.2959 11.6712 15.6252 12.5 15.6252C13.3288 15.6252 14.1237 15.2959 14.7097 14.7099C15.2958 14.1238 15.625 13.329 15.625 12.5002C15.625 11.6714 15.2958 10.8765 14.7097 10.2905C14.1237 9.7044 13.3288 9.37516 12.5 9.37516Z" fill="#B3B3B3"/>
+                    </svg>
+                    <span class="sr-only">Intagram page</span>
+                </a>
+                <a href="https://twitter.com/?lang=pt-br" class="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5 hover:scale-125 transform transition-transform">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none">
+                        <path d="M18.4907 3.125H21.6855L14.7063 11.0677L22.9167 21.875H16.4875L11.4532 15.3198L5.69171 21.875H2.49379L9.95942 13.3802L2.08337 3.125H8.67504L13.2271 9.11667L18.4907 3.125ZM17.3698 19.9708H19.1407L7.71254 4.92917H5.81254L17.3698 19.9708Z" fill="#B3B3B3"/>
+                    </svg>
+                    <span class="sr-only">X account</span>
+                </a>
+                <a href="https://br.pinterest.com/" class="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5 hover:scale-125 transform transition-transform">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none">
+                        <path d="M9.41671 22.4377C10.4167 22.7397 11.4271 22.9168 12.5 22.9168C15.2627 22.9168 17.9122 21.8194 19.8657 19.8659C21.8192 17.9124 22.9167 15.2628 22.9167 12.5002C22.9167 11.1322 22.6473 9.77768 22.1238 8.51388C21.6003 7.25007 20.833 6.10174 19.8657 5.13447C18.8985 4.16719 17.7501 3.3999 16.4863 2.87642C15.2225 2.35293 13.868 2.0835 12.5 2.0835C11.1321 2.0835 9.77756 2.35293 8.51375 2.87642C7.24995 3.3999 6.10162 4.16719 5.13434 5.13447C3.18084 7.08797 2.08337 9.73749 2.08337 12.5002C2.08337 16.9272 4.86462 20.7293 8.79171 22.2293C8.69796 21.4168 8.60421 20.0731 8.79171 19.146L9.98962 14.0002C9.98962 14.0002 9.68754 13.396 9.68754 12.4377C9.68754 11.0002 10.5834 9.92725 11.6042 9.92725C12.5 9.92725 12.9167 10.5835 12.9167 11.4272C12.9167 12.3231 12.323 13.6043 12.0209 14.8335C11.8438 15.8543 12.5625 16.7502 13.6042 16.7502C15.4584 16.7502 16.8959 14.771 16.8959 11.9793C16.8959 9.47933 15.1042 7.771 12.5313 7.771C9.59379 7.771 7.86462 9.9585 7.86462 12.2606C7.86462 13.1564 8.15629 14.0627 8.63546 14.6564C8.72921 14.7189 8.72921 14.8022 8.69796 14.9585L8.39587 16.0939C8.39587 16.271 8.28129 16.3335 8.10421 16.2085C6.77087 15.6252 6.00004 13.7293 6.00004 12.1981C6.00004 8.90641 8.33337 5.91683 12.8334 5.91683C16.4167 5.91683 19.2084 8.48975 19.2084 11.9064C19.2084 15.4897 16.9896 18.3647 13.8125 18.3647C12.8021 18.3647 11.8125 17.8231 11.4584 17.1877L10.7605 19.6564C10.5209 20.5522 9.86462 21.7502 9.41671 22.4689V22.4377Z" fill="#B3B3B3"/>
+                    </svg>
+                    <span class="sr-only">Pinterest account</span>
+                </a>
+                <a href="https://www.youtube.com/" class="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5 hover:scale-125 transform transition-transform">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none">
+                        <path d="M10.4167 15.6252L15.823 12.5002L10.4167 9.37516V15.6252ZM22.4584 7.46891C22.5938 7.9585 22.6875 8.61475 22.75 9.44808C22.823 10.2814 22.8542 11.0002 22.8542 11.6252L22.9167 12.5002C22.9167 14.7814 22.75 16.4585 22.4584 17.5314C22.198 18.4689 21.5938 19.0731 20.6563 19.3335C20.1667 19.4689 19.2709 19.5627 17.8959 19.6252C16.5417 19.6981 15.3021 19.7293 14.1563 19.7293L12.5 19.7918C8.13546 19.7918 5.41671 19.6252 4.34379 19.3335C3.40629 19.0731 2.80212 18.4689 2.54171 17.5314C2.40629 17.0418 2.31254 16.3856 2.25004 15.5522C2.17712 14.7189 2.14587 14.0002 2.14587 13.3752L2.08337 12.5002C2.08337 10.2189 2.25004 8.54183 2.54171 7.46891C2.80212 6.53141 3.40629 5.92725 4.34379 5.66683C4.83337 5.53141 5.72921 5.43766 7.10421 5.37516C8.45837 5.30225 9.69796 5.271 10.8438 5.271L12.5 5.2085C16.8646 5.2085 19.5834 5.37516 20.6563 5.66683C21.5938 5.92725 22.198 6.53141 22.4584 7.46891Z" fill="#B3B3B3"/>
+                    </svg>
+                    <span class="sr-only">Youtube account</span>
+                </a>
+            </div>
+        </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('AcionarOutro').addEventListener('click', function() {
+            // Seta uma flag no localStorage para acionar o botão na outra página
+            localStorage.setItem('acionarBotao', 'true');
+            // Redireciona para a segunda página
+            window.location.href = 'cadastro.html';
+        });
+    </script>
+
+
+    <script type="module" src="/js/passup.js"></script>
+    <script type="module" src="/js/loginauth.js"></script>
+    <script type="module" src="/js/logado.js"></script>
+    <script src="/js/app.js"></script>
+</body>
+</html>

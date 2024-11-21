@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en" class="bg-[#84B0C3]">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/css/tw-elements.min.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/css/style.css">
+    <link id="favicon" rel="icon" href="/img/logo-desenho-preta.ico">
+    <title>Quero vender</title>
+</head>
+<body >
+    <section>
+        <nav class="">
+            <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+                <a class="flex items-center justify-between;" href="index.html">
+                    <img class="h-9 mr-[5px]" src="img/logo-desenho.svg" alt="logo">
+                    <img class="h-9" src="img/logo-escrita.svg" alt="logo">
+                </a>
+                <div class="flex items-center lg:order-2 space-x-3 lg:space-x-0 rtl:space-x-reverse">
+                    <button type="button"
+                        class="flex text-md items-center rounded-full lg:me-0 text-white hover:text-[#d91424] group"
+                        id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown"
+                        data-dropdown-placement="bottom" onclick="toggleRotation()">
+                        <svg viewBox="-0.75 -0.75 24 24" xmlns="http://www.w3.org/2000/svg"
+                            id="Single-Man-Circle--Streamline-Ultimate" height="36" width="36"
+                            class="stroke-current text-white group-hover:text-[#d91424]">
+                            <path
+                                d="M7.00875 6.641249999999999A8.1665625 8.1665625 0 0 0 12.890625 9.140625a8.1796875 8.1796875 0 0 0 3.234375 -0.6656249999999999"
+                                fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
+                            <path
+                                d="M6.328125 9.140625a4.921875 4.921875 0 1 0 9.84375 0 4.921875 4.921875 0 1 0 -9.84375 0Z"
+                                fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
+                            <path d="M17.7309375 19.571250000000003a9.136875 9.136875 0 0 0 -12.961875000000001 0"
+                                fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
+                            <path
+                                d="M0.703125 11.25a10.546875 10.546875 0 1 0 21.09375 0 10.546875 10.546875 0 1 0 -21.09375 0Z"
+                                fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
+                        </svg>
+                        <span class="hidden lg:block ml-[5px] mr-[5px] text-lg text-white group-hover:text-[#d91424] medio">
+                            Conta
+                        </span>
+                        <div class="hidden lg:block flex items-center justify-center group">
+                            <svg width="1.25rem" height="1.25rem" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"
+                                class="fill-current group-hover:text-[#d91424] transition-transform duration-300 transform"
+                                id="arrow-icon">
+                                <g id="SVGRepo_bgCarrier" stroke-width="0"/>
+                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
+                                <g id="SVGRepo_iconCarrier">
+                                    <metadata id="metadata7">
+                                        <rdf:rdf>
+                                            <cc:license rdf:about="http://creativecommons.org/licenses/by-sa/4.0/">
+                                                <cc:permits rdf:resource="http://creativecommons.org/ns#Reproduction"/>
+                                                <cc:permits rdf:resource="http://creativecommons.org/ns#Distribution"/>
+                                                <cc:requires rdf:resource="http://creativecommons.org/ns#Notice"/>
+                                                <cc:requires rdf:resource="http://creativecommons.org/ns#Attribution"/>
+                                                <cc:permits rdf:resource="http://creativecommons.org/ns#DerivativeWorks"/>
+                                                <cc:requires rdf:resource="http://creativecommons.org/ns#ShareAlike"/>
+                                            </cc:license>
+                                        </rdf:rdf>
+                                    </metadata>
+                                    <g id="layer1" transform="rotate(45 1254.793 524.438)">
+                                        <path d="M.536 1044.409v-1.997h9v-9h2v11z" />
+                                    </g>
+                                </g>
+                            </svg>
+                        </div>
+                    </button>
+                    <!-- Dropdown menu -->
+                    <div class="z-50 hidden my-4 text-base rounded-lg shadow bg-black"
+                        id="user-dropdown">
+                        <div class="pb-[0] pl-[10px] pr-[10px] py-3">
+                            <span class="block text-md bg-[#2a2a2a] border-8  text-white  border-[#2a2a2a] rounded-lg medio ">Gerenciar sua conta</span>
+                        </div>
+                        <ul class="py-2" aria-labelledby="user-menu-button">
+                            <li>
+                                <a href="login.html"
+                                class="block px-4 py-2 text-md text-white hover:text-[#D91424] medio" data-auth="signed-out">Entrar</a>
+                            </li>
+                            <li>
+                                <a href="cad-email.html"
+                                    class="block px-4 py-2 text-md text-white hover:text-[#D91424] medio" data-auth="signed-out">Cadastrar-se</a>
+                            </li>
+                            <li>
+                                <a href="perfil.html"
+                                    class="block px-4 py-2 text-md text-white hover:text-[#D91424] medio" data-auth="signed-in">Conta</a>
+                            </li>
+                            <li>
+                                <button type="button" id="btnSair" class="block px-4 py-2 text-md text-white hover:text-[#D91424] medio" data-auth="signed-in">Sair</button>
+                            </li>
+                        </ul>
+                    </div>
+                    <button data-collapse-toggle="navbar-user" type="button"
+                        class="inline-flex items-center  w-10 h-10 justify-center text-md rounded-lg lg:hidden"
+                        aria-controls="navbar-user" aria-expanded="false">
+                        <svg width="64px" height="64px" viewBox="0 0 24.00 24.00" fill="none"
+                            xmlns="http://www.w3.org/2000/svg" stroke="#ffffff" stroke-width="0.00024000000000000003">
+    
+                            <g id="SVGRepo_bgCarrier" stroke-width="0" />
+    
+                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" />
+    
+                            <g id="SVGRepo_iconCarrier">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M19.5 8.25H4.5V6.75H19.5V8.25Z"
+                                    fill="#ffffff" />
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M19.5 12.75H4.5V11.25H19.5V12.75Z"
+                                    fill="#ffffff" />
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M19.5 17.25H4.5V15.75H19.5V17.25Z"
+                                    fill="#ffffff" />
+                            </g>
+                        </svg>
+                    </button>
+                </div>
+                <div class="hidden lg:block items-center justify-between w-full lg:flex lg:w-auto lg:order-1"
+                    id="navbar-user">
+                    <ul
+                        class="flex flex-col font-medium pt-4 mt-4 lg:space-x-8 rtl:space-x-reverse lg:flex-row lg:mt-0 border-t border-white lg:bg-transparent lg:rounded-none lg:border-none lg:p-0">
+                        <li>
+                            <a href="#vai"
+                                class="block py-2 px-3 relative text-white rounded-lg text-center hover:bg-[#2a2a2a] lg:hover:text-[#D91424] transition-all ease-in-out lg:before:transition-[width] lg:before:ease-in-out lg:before:duration-700 lg:before:absolute lg:before:bg-[#D91424] lg:before:origin-center lg:before:h-[1px] lg:before:w-0 hover:before:w-[50%] lg:before:bottom-0 lg:before:left-[50%] lg:after:transition-[width] lg:after:ease-in-out lg:after:duration-700 lg:after:absolute lg:after:bg-[#D91424] lg:after:origin-center lg:after:h-[1px] lg:after:w-0 lg:hover:after:w-[50%] lg:after:bottom-0 lg:after:right-[50%] medio lg:hover:bg-transparent">Instalar</a>
+                        </li>
+                        <li>
+                            <a href="sobrenos.html"
+                                class="block py-2 px-3 relative text-white rounded-lg text-center hover:bg-[#2a2a2a] lg:hover:text-[#D91424] transition-all ease-in-out lg:before:transition-[width] lg:before:ease-in-out lg:before:duration-700 lg:before:absolute lg:before:bg-[#D91424] lg:before:origin-center lg:before:h-[1px] lg:before:w-0 hover:before:w-[50%] lg:before:bottom-0 lg:before:left-[50%] lg:after:transition-[width] lg:after:ease-in-out lg:after:duration-700 lg:after:absolute lg:after:bg-[#D91424] lg:after:origin-center lg:after:h-[1px] lg:after:w-0 lg:hover:after:w-[50%] lg:after:bottom-0 lg:after:right-[50%] medio lg:hover:bg-transparent">Sobre
+                                Nós</a>
+                        </li>
+                        <li>
+                            <a href="suporte.html"
+                                class="block py-2 px-3 relative text-white rounded-lg text-center hover:bg-[#2a2a2a] lg:hover:text-[#D91424] transition-all ease-in-out lg:before:transition-[width] lg:before:ease-in-out lg:before:duration-700 lg:before:absolute lg:before:bg-[#D91424] lg:before:origin-center lg:before:h-[1px] lg:before:w-0 hover:before:w-[50%] lg:before:bottom-0 lg:before:left-[50%] lg:after:transition-[width] lg:after:ease-in-out lg:after:duration-700 lg:after:absolute lg:after:bg-[#D91424] lg:after:origin-center lg:after:h-[1px] lg:after:w-0 lg:hover:after:w-[50%] lg:after:bottom-0 lg:after:right-[50%] medio lg:hover:bg-transparent">Suporte</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </section>
+    
+    <section class="xl:min-h-screen">
+        <div class="flex items-center justify-center p-4">
+            <div class="w-[600px]">
+                
+                <div class="my-4 text-[#013c55] text-3xl bold">
+                    Confirme os seus dados para conseguir vender na <strong class="bolder">weave</strong>!
+                </div>
+                <section class="w-full mt-6">
+                    <div class="bg-[#013c55] w-full rounded-lg hover:bg-[#468299]">
+                        <div class="">
+                            <!-- Link de validação do firebase -->
+                            <button id="verifyEmailButton" class="w-full flex items-center justify-between py-1 text-lg text-white">
+                                <div class="flex flex-col">
+                                  <span class="px-4 mb-1 mt-2 bold text-left">Verifique seu e-mail</span>
+                                  <span class="px-4 mb-2 text-sm book text-left">Aperte para enviar o e-mail de verificação.</span>
+                                </div>
+                                <span id="verifiedIcon" class="hidden flex items-center ml-auto px-4">
+                                  <svg width="32px" height="32px" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="#000000">
+                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                    <g id="SVGRepo_iconCarrier">
+                                      <path d="m16 0c8.836556 0 16 7.163444 16 16s-7.163444 16-16 16-16-7.163444-16-16 7.163444-16 16-16zm5.7279221 11-7.0710679 7.0710678-4.2426406-4.2426407-1.4142136 1.4142136 5.6568542 5.6568542 8.4852814-8.4852813z" fill="#055902" fill-rule="evenodd"></path>
+                                    </g>
+                                  </svg>
+                                </span>
+                            </button>
+                          </div>                          
+                    </div>
+                </section>
+
+                <section class="mt-6">
+                    <div class="bold text-2xl text-[#013c55] underline">
+                        Dados pessoais
+                    </div>
+                    
+                        <div class="mt-6 mb-4 group">
+                            <label for="username" class="block text-base mb-2 text-[#013c55] medio group-hover:text-white group-focus-within:text-white">Nome completo</label>
+                            <div class="w-full relative">
+                                <input id="nameComp" class="w-full bg-white text-sm border border-[#013c55] rounded-md px-3 py-3 focus:outline-none  group-hover:border-white group-focus-within:text-black group-focus-within:border-white group-hover:text-black focus-within:border-white text-black book" />
+                                <!-- Fazer depois com java script as mascaras com os respectivos svgs, quando estiver correto o primeiro svg na cor verde e quando estiver errado o segundo svg na cor vermelha. basic -->
+                                <span id="tudocerto" class="hidden absolute right-3 top-1/2 transform -translate-y-1/2">
+                                    <svg fill="#055902" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="0 0 335.765 335.765" xml:space="preserve" stroke="#055902"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <polygon points="311.757,41.803 107.573,245.96 23.986,162.364 0,186.393 107.573,293.962 335.765,65.795 "></polygon> </g> </g> </g></svg>
+                                </span>
+                                <span id="errado" class="hidden absolute right-3 top-1/2 transform -translate-y-1/2">
+                                    <svg height="18px" width="18px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 449.998 449.998" xml:space="preserve" fill="#d91424" stroke="#d91424"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <polygon style="fill:#d91424;" points="449.974,34.855 415.191,0 225.007,190.184 34.839,0 0.024,34.839 190.192,224.999 0.024,415.159 34.839,449.998 225.007,259.797 415.191,449.998 449.974,415.143 259.83,224.999 "></polygon> </g> </g> </g></svg>
+                                </span>
+                            </div>
+                        </div>
+    
+                        <div class="group mb-4">
+                            <label for="username" class="block text-base mb-2 text-[#013c55] medio group-hover:text-white group-focus-within:text-white">Telefone</label>
+                            <div class="w-full mb-4 relative">
+                                <input autocomplete="cc-number" id="number" name="number" class="w-full bg-white text-sm border border-[#013c55] rounded-md px-3 py-3 focus:outline-none  group-hover:border-white group-focus-within:text-black group-focus-within:border-white group-hover:text-black focus-within:border-white text-black book" />
+                                <span id="tudocerto2" class="hidden absolute right-3 top-1/2 transform -translate-y-1/2">
+                                    <svg fill="#055902" version="1.1" id="szCapa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="0 0 335.765 335.765" xml:space="preserve" stroke="#055902"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <polygon points="311.757,41.803 107.573,245.96 23.986,162.364 0,186.393 107.573,293.962 335.765,65.795 "></polygon> </g> </g> </g></svg>
+                                </span>
+                                <span id="errado2" class="hidden absolute right-3 top-1/2 transform -translate-y-1/2">
+                                    <svg height="18px" width="18px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 449.998 449.998" xml:space="preserve" fill="#d91424" stroke="#d91424"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <polygon style="fill:#d91424;" points="449.974,34.855 415.191,0 225.007,190.184 34.839,0 0.024,34.839 190.192,224.999 0.024,415.159 34.839,449.998 225.007,259.797 415.191,449.998 449.974,415.143 259.83,224.999 "></polygon> </g> </g> </g></svg>
+                                </span>
+                            </div>
+                        </div>
+    
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="col-span-1 group">
+                                <label for="username" class="block text-base mb-2 text-[#013c55] medio group-hover:text-white group-focus-within:text-white">CPF</label>
+                                <div class="w-full relative">
+                                    <input autocomplete="cc-cpf" id="cpf" name="cpf" class="w-full bg-white text-sm border border-[#013c55] rounded-md px-3 py-3 focus:outline-none  group-hover:border-white group-focus-within:text-black group-focus-within:border-white group-hover:text-black focus-within:border-white text-black book" />
+                                    <span id="tudocerto3" class="hidden absolute right-3 top-1/2 transform -translate-y-1/2">
+                                        <svg fill="#055902" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="0 0 335.765 335.765" xml:space="preserve" stroke="#055902"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <polygon points="311.757,41.803 107.573,245.96 23.986,162.364 0,186.393 107.573,293.962 335.765,65.795 "></polygon> </g> </g> </g></svg>
+                                    </span>
+                                    <span id="errado3" class="hidden absolute right-3 top-1/2 transform -translate-y-1/2 ">
+                                        <svg height="18px" width="18px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 449.998 449.998" xml:space="preserve" fill="#d91424" stroke="#d91424"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <polygon style="fill:#d91424;" points="449.974,34.855 415.191,0 225.007,190.184 34.839,0 0.024,34.839 190.192,224.999 0.024,415.159 34.839,449.998 225.007,259.797 415.191,449.998 449.974,415.143 259.83,224.999 "></polygon> </g> </g> </g></svg>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="col-span-1 group">
+                                <label for="username" class="block text-base mb-2 text-[#013c55] medio group-hover:text-white group-focus-within:text-white">Data de nascimento</label>
+                                <div class="w-full mb-4 relative">
+                                    <input autocomplete="cc-birth" id="birth" name="birth" class="w-full bg-white text-sm border border-[#013c55] rounded-md px-3 py-3 focus:outline-none  group-hover:border-white group-focus-within:text-black group-focus-within:border-white group-hover:text-black focus-within:border-white text-black book" />
+                                    <span id="tudocerto4" class="hidden absolute right-3 top-1/2 transform -translate-y-1/2">
+                                        <svg fill="#055902" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="0 0 335.765 335.765" xml:space="preserve" stroke="#055902"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <polygon points="311.757,41.803 107.573,245.96 23.986,162.364 0,186.393 107.573,293.962 335.765,65.795 "></polygon> </g> </g> </g></svg>
+                                    </span>
+                                    <span id="errado4" class="hidden absolute right-3 top-1/2 transform -translate-y-1/2 ">
+                                        <svg height="18px" width="18px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 449.998 449.998" xml:space="preserve" fill="#d91424" stroke="#d91424"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <polygon style="fill:#d91424;" points="449.974,34.855 415.191,0 225.007,190.184 34.839,0 0.024,34.839 190.192,224.999 0.024,415.159 34.839,449.998 225.007,259.797 415.191,449.998 449.974,415.143 259.83,224.999 "></polygon> </g> </g> </g></svg>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+    
+                    <section class="mt-6">
+                        <div class="bold text-2xl text-[#013c55] underline">
+                            Endereço
+                        </div>
+                        <div class="grid grid-cols-3 gap-4">
+                            <div class="col-span-2 mt-6 mb-4 group">
+                                <label for="username" class="block text-base mb-2 text-[#013c55] medio group-hover:text-white group-focus-within:text-white">CEP</label>
+                                <div class="w-full relative">
+                                    <input autocomplete="cc-cep" id="cep" name="cep" class="w-full bg-white text-sm border border-[#013c55] rounded-md px-3 py-3 focus:outline-none  group-hover:border-white group-focus-within:text-black group-focus-within:border-white group-hover:text-black focus-within:border-white text-black book" />
+                                    <span id="tudocerto5" class="hidden absolute right-3 top-1/2 transform -translate-y-1/2">
+                                        <svg fill="#055902" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="0 0 335.765 335.765" xml:space="preserve" stroke="#055902"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <polygon points="311.757,41.803 107.573,245.96 23.986,162.364 0,186.393 107.573,293.962 335.765,65.795 "></polygon> </g> </g> </g></svg>
+                                    </span>
+                                    <span id="errado5" class="hidden absolute right-3 top-1/2 transform -translate-y-1/2 ">
+                                        <svg height="18px" width="18px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 449.998 449.998" xml:space="preserve" fill="#d91424" stroke="#d91424"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <polygon style="fill:#d91424;" points="449.974,34.855 415.191,0 225.007,190.184 34.839,0 0.024,34.839 190.192,224.999 0.024,415.159 34.839,449.998 225.007,259.797 415.191,449.998 449.974,415.143 259.83,224.999 "></polygon> </g> </g> </g></svg>
+                                    </span>
+                                </div>
+                                <a href="https://buscacepinter.correios.com.br/app/endereco/index.php" target="_blank" class="p-1 bold text-xs md:text-sm text-[#D91424]">
+                                    não sei meu cep
+                                </a>
+                            </div>
+                            <div class="col-span-1 mt-6  group">
+                                <label for="username" class="block text-base mb-2 text-[#013c55] medio group-hover:text-white group-focus-within:text-white">Número</label>
+                                <div class="w-full relative">
+                                    <input id="numberhouse" class="w-full bg-white text-sm border border-[#013c55] rounded-md px-3 py-3 focus:outline-none  group-hover:border-white group-focus-within:text-black group-focus-within:border-white group-hover:text-black focus-within:border-white text-black book" />
+                                    <span id="tudocerto6" class="hidden absolute right-3 top-1/2 transform -translate-y-1/2">
+                                        <svg fill="#055902" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="0 0 335.765 335.765" xml:space="preserve" stroke="#055902"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <polygon points="311.757,41.803 107.573,245.96 23.986,162.364 0,186.393 107.573,293.962 335.765,65.795 "></polygon> </g> </g> </g></svg>
+                                    </span>
+                                    <span id="errado6" class="hidden absolute right-3 top-1/2 transform -translate-y-1/2 ">
+                                        <svg height="18px" width="18px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 449.998 449.998" xml:space="preserve" fill="#d91424" stroke="#d91424"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <polygon style="fill:#d91424;" points="449.974,34.855 415.191,0 225.007,190.184 34.839,0 0.024,34.839 190.192,224.999 0.024,415.159 34.839,449.998 225.007,259.797 415.191,449.998 449.974,415.143 259.83,224.999 "></polygon> </g> </g> </g></svg>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div class="group mb-4">
+                            <label for="username" class="block text-base mb-2 text-[#013c55] medio group-hover:text-white group-focus-within:text-white">Endereço</label>
+                            <div class="w-full  relative">
+                                <input id="addressEt" class="w-full bg-white text-sm border border-[#013c55] rounded-md px-3 py-3 focus:outline-none  group-hover:border-white group-focus-within:text-black group-focus-within:border-white group-hover:text-black focus-within:border-white text-black book" />
+                                <span id="tudocerto7" class="hidden absolute right-3 top-1/2 transform -translate-y-1/2">
+                                    <svg fill="#055902" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="0 0 335.765 335.765" xml:space="preserve" stroke="#055902"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <polygon points="311.757,41.803 107.573,245.96 23.986,162.364 0,186.393 107.573,293.962 335.765,65.795 "></polygon> </g> </g> </g></svg>
+                                </span>
+                                <span id="errado7" class="hidden absolute right-3 top-1/2 transform -translate-y-1/2">
+                                    <svg height="18px" width="18px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 449.998 449.998" xml:space="preserve" fill="#d91424" stroke="#d91424"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <polygon style="fill:#d91424;" points="449.974,34.855 415.191,0 225.007,190.184 34.839,0 0.024,34.839 190.192,224.999 0.024,415.159 34.839,449.998 225.007,259.797 415.191,449.998 449.974,415.143 259.83,224.999 "></polygon> </g> </g> </g></svg>
+                                </span>
+                            </div>
+                        </div>
+                        
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="col-span-1 group">
+                                <label for="username" class="block text-base mb-2 text-[#013c55] medio group-hover:text-white group-focus-within:text-white">Bairro</label>
+                                <div class="w-full relative">
+                                    <input id="districtEt" class="w-full bg-white text-sm border border-[#013c55] rounded-md px-3 py-3 focus:outline-none  group-hover:border-white group-focus-within:text-black group-focus-within:border-white group-hover:text-black focus-within:border-white text-black book" />
+                                    <span id="tudocerto8" class="hidden absolute right-3 top-1/2 transform -translate-y-1/2">
+                                        <svg fill="#055902" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="0 0 335.765 335.765" xml:space="preserve" stroke="#055902"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <polygon points="311.757,41.803 107.573,245.96 23.986,162.364 0,186.393 107.573,293.962 335.765,65.795 "></polygon> </g> </g> </g></svg>
+                                    </span>
+                                    <span id="errado8" class="hidden absolute right-3 top-1/2 transform -translate-y-1/2 ">
+                                        <svg height="18px" width="18px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 449.998 449.998" xml:space="preserve" fill="#d91424" stroke="#d91424"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <polygon style="fill:#d91424;" points="449.974,34.855 415.191,0 225.007,190.184 34.839,0 0.024,34.839 190.192,224.999 0.024,415.159 34.839,449.998 225.007,259.797 415.191,449.998 449.974,415.143 259.83,224.999 "></polygon> </g> </g> </g></svg>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="col-span-1 group">
+                                <label for="username" class="block text-base mb-2 text-[#013c55] medio group-hover:text-white group-focus-within:text-white">Complemento</label>
+                                <div class="w-full mb-4 relative">
+                                    <input id="comple" class="w-full bg-white text-sm border border-[#013c55] rounded-md px-3 py-3 focus:outline-none  group-hover:border-white group-focus-within:text-black group-focus-within:border-white group-hover:text-black focus-within:border-white text-black book" />
+                                    <span id="tudocerto9" class="hidden absolute right-3 top-1/2 transform -translate-y-1/2">
+                                        <svg fill="#055902" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="0 0 335.765 335.765" xml:space="preserve" stroke="#055902"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <polygon points="311.757,41.803 107.573,245.96 23.986,162.364 0,186.393 107.573,293.962 335.765,65.795 "></polygon> </g> </g> </g></svg>
+                                    </span>
+                                    <span id="errado9" class="hidden absolute right-3 top-1/2 transform -translate-y-1/2 ">
+                                        <svg height="18px" width="18px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 449.998 449.998" xml:space="preserve" fill="#d91424" stroke="#d91424"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <polygon style="fill:#d91424;" points="449.974,34.855 415.191,0 225.007,190.184 34.839,0 0.024,34.839 190.192,224.999 0.024,415.159 34.839,449.998 225.007,259.797 415.191,449.998 449.974,415.143 259.83,224.999 "></polygon> </g> </g> </g></svg>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div class="grid grid-cols-3 gap-4">
+                            <div class="col-span-2 group">
+                                <label for="username" class="block text-base mb-2 text-[#013c55] medio group-hover:text-white group-focus-within:text-white">Cidade</label>
+                                <div class="w-full relative">
+                                    <input id="cityEt" class="w-full bg-white text-sm border border-[#013c55] rounded-md px-3 py-3 focus:outline-none  group-hover:border-white group-focus-within:text-black group-focus-within:border-white group-hover:text-black focus-within:border-white text-black book" />
+                                    <span id="tudocerto10" class="hidden absolute right-3 top-1/2 transform -translate-y-1/2">
+                                        <svg fill="#055902" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="0 0 335.765 335.765" xml:space="preserve" stroke="#055902"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <polygon points="311.757,41.803 107.573,245.96 23.986,162.364 0,186.393 107.573,293.962 335.765,65.795 "></polygon> </g> </g> </g></svg>
+                                    </span>
+                                    <span id="errado10" class="hidden absolute right-3 top-1/2 transform -translate-y-1/2 ">
+                                        <svg height="18px" width="18px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 449.998 449.998" xml:space="preserve" fill="#d91424" stroke="#d91424"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <polygon style="fill:#d91424;" points="449.974,34.855 415.191,0 225.007,190.184 34.839,0 0.024,34.839 190.192,224.999 0.024,415.159 34.839,449.998 225.007,259.797 415.191,449.998 449.974,415.143 259.83,224.999 "></polygon> </g> </g> </g></svg>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="col-span-1 group">
+                                <label for="username" class="block text-base mb-2 text-[#013c55] medio group-hover:text-white group-focus-within:text-white">Estado</label>
+                                <div class="w-full mb-4 relative">
+                                    <input id="stateEt" class="w-full bg-white text-sm border border-[#013c55] rounded-md px-3 py-3 focus:outline-none  group-hover:border-white group-focus-within:text-black group-focus-within:border-white group-hover:text-black focus-within:border-white text-black book" />
+                                    <span id="tudocerto11" class="hidden absolute right-3 top-1/2 transform -translate-y-1/2">
+                                        <svg fill="#055902" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="0 0 335.765 335.765" xml:space="preserve" stroke="#055902"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <polygon points="311.757,41.803 107.573,245.96 23.986,162.364 0,186.393 107.573,293.962 335.765,65.795 "></polygon> </g> </g> </g></svg>
+                                    </span>
+                                    <span id="errado11" class="hidden absolute right-3 top-1/2 transform -translate-y-1/2 ">
+                                        <svg height="18px" width="18px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 449.998 449.998" xml:space="preserve" fill="#d91424" stroke="#d91424"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <polygon style="fill:#d91424;" points="449.974,34.855 415.191,0 225.007,190.184 34.839,0 0.024,34.839 190.192,224.999 0.024,415.159 34.839,449.998 225.007,259.797 415.191,449.998 449.974,415.143 259.83,224.999 "></polygon> </g> </g> </g></svg>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <button id="confirmButton" class="mt-6 mb-6 lg:mb-4 text-white bg-[#013c55] hover:scale-95 transition-transform duration-300 transform  focus:outline-none focus:ring-blue-300 font-medium rounded-[20px] text-md w-full sm:w-full px-5 py-2.5 text-center bold">Confirmar</button>
+                    
+                </section>
+            </div>
+        </div>
+    </section>
+    
+    <script type="module" src="/js/sell.js"></script>
+    <script src="/js/mask.js"></script>
+    <script type="module" src="/js/logado.js"></script>
+    <script type="module" src="/js/logout.js"></script> 
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
+</body>
+</html>

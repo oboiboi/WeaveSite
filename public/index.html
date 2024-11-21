@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en" class="bg-gradient-to-t from-[#cdcdcd] to-[#013c55]">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/css/tw-elements.min.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/css/style.css">
+    <link id="favicon" rel="icon" href="/img/logo-desenho-preta.ico">
+    <title>Home</title>
+</head>
+
+
+<body>
+    
+    <section class="lg:min-h-screen">
+        <section>
+            <nav class="">
+                <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+                    <a class="flex items-center justify-between;" href="index.html">
+                        <img class="h-9 mr-[5px]" src="/img/logo-desenho.svg" alt="logo">
+                        <img class="h-9" src="/img/logo-escrita.svg" alt="logo">
+                    </a>
+                    <div class="flex items-center lg:order-2 space-x-3 lg:space-x-0 rtl:space-x-reverse">
+                        <button type="button"
+                            class="flex text-md items-center rounded-full lg:me-0 text-white hover:text-[#d91424] group"
+                            id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown"
+                            data-dropdown-placement="bottom" onclick="toggleRotation()">
+                            <svg viewBox="-0.75 -0.75 24 24" xmlns="http://www.w3.org/2000/svg"
+                                id="Single-Man-Circle--Streamline-Ultimate" height="36" width="36"
+                                class="stroke-current text-white group-hover:text-[#d91424]">
+                                <path
+                                    d="M7.00875 6.641249999999999A8.1665625 8.1665625 0 0 0 12.890625 9.140625a8.1796875 8.1796875 0 0 0 3.234375 -0.6656249999999999"
+                                    fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
+                                <path
+                                    d="M6.328125 9.140625a4.921875 4.921875 0 1 0 9.84375 0 4.921875 4.921875 0 1 0 -9.84375 0Z"
+                                    fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
+                                <path d="M17.7309375 19.571250000000003a9.136875 9.136875 0 0 0 -12.961875000000001 0"
+                                    fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
+                                <path
+                                    d="M0.703125 11.25a10.546875 10.546875 0 1 0 21.09375 0 10.546875 10.546875 0 1 0 -21.09375 0Z"
+                                    fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
+                            </svg>
+                            <span class="hidden lg:block ml-[5px] mr-[5px] text-lg text-white group-hover:text-[#d91424] medio">
+                                Conta
+                            </span>
+                            <div class="hidden lg:block flex items-center justify-center group">
+                                <svg width="1.25rem" height="1.25rem" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"
+                                    class="fill-current group-hover:text-[#d91424] transition-transform duration-300 transform"
+                                    id="arrow-icon">
+                                    <g id="SVGRepo_bgCarrier" stroke-width="0"/>
+                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <g id="SVGRepo_iconCarrier">
+                                        <metadata id="metadata7">
+                                            <rdf:rdf>
+                                                <cc:license rdf:about="http://creativecommons.org/licenses/by-sa/4.0/">
+                                                    <cc:permits rdf:resource="http://creativecommons.org/ns#Reproduction"/>
+                                                    <cc:permits rdf:resource="http://creativecommons.org/ns#Distribution"/>
+                                                    <cc:requires rdf:resource="http://creativecommons.org/ns#Notice"/>
+                                                    <cc:requires rdf:resource="http://creativecommons.org/ns#Attribution"/>
+                                                    <cc:permits rdf:resource="http://creativecommons.org/ns#DerivativeWorks"/>
+                                                    <cc:requires rdf:resource="http://creativecommons.org/ns#ShareAlike"/>
+                                                </cc:license>
+                                            </rdf:rdf>
+                                        </metadata>
+                                        <g id="layer1" transform="rotate(45 1254.793 524.438)">
+                                            <path d="M.536 1044.409v-1.997h9v-9h2v11z" />
+                                        </g>
+                                    </g>
+                                </svg>
+                            </div>
+                        </button>
+                        <!-- Dropdown menu -->
+                        <div class="z-50 hidden my-4 text-base rounded-lg shadow bg-black"
+                            id="user-dropdown">
+                            <div class="pb-[0] pl-[10px] pr-[10px] py-3">
+                                <span class="block text-md bg-[#2a2a2a] border-8  text-white  border-[#2a2a2a] rounded-lg medio ">Gerenciar sua conta</span>
+                            </div>
+                            <ul class="py-2" aria-labelledby="user-menu-button">
+                                <li>
+                                    <a href="/login.html"
+                                    class="block px-4 py-2 text-md text-white hover:text-[#D91424] medio" data-auth="signed-out">Entrar</a>
+                                </li>
+                                <li>
+                                    <a href="/cadastro.html"
+                                        class="block px-4 py-2 text-md text-white hover:text-[#D91424] medio" data-auth="signed-out">Cadastrar-se</a>
+                                </li>
+                                <li>
+                                    <a href="/perfil.html"
+                                        class="block px-4 py-2 text-md text-white hover:text-[#D91424] medio" data-auth="signed-in">Conta</a>
+                                </li>
+                                <li>
+                                    <a href="/vender.html"
+                                        class="block px-4 py-2 text-md text-white hover:text-[#D91424] medio" data-page="vender">Quero vender</a>
+                                </li>
+                                <li>
+                                    <a href="/adm.html"
+                                        class="block px-4 py-2 text-md text-white hover:text-[#D91424] medio" data-page="admin">adm</a>
+                                </li>
+                                <li>
+                                    <button type="button" id="btnSair" class="block px-4 py-2 text-md text-white hover:text-[#D91424] medio" data-auth="signed-in">Sair</button>
+                                </li>
+                            </ul>
+                        </div>
+                        <button data-collapse-toggle="navbar-user" type="button"
+                            class="inline-flex items-center  w-10 h-10 justify-center text-md rounded-lg lg:hidden"
+                            aria-controls="navbar-user" aria-expanded="false">
+                            <svg width="64px" height="64px" viewBox="0 0 24.00 24.00" fill="none"
+                                xmlns="http://www.w3.org/2000/svg" stroke="#ffffff" stroke-width="0.00024000000000000003">
+        
+                                <g id="SVGRepo_bgCarrier" stroke-width="0" />
+        
+                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" />
+        
+                                <g id="SVGRepo_iconCarrier">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M19.5 8.25H4.5V6.75H19.5V8.25Z"
+                                        fill="#ffffff" />
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M19.5 12.75H4.5V11.25H19.5V12.75Z"
+                                        fill="#ffffff" />
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M19.5 17.25H4.5V15.75H19.5V17.25Z"
+                                        fill="#ffffff" />
+                                </g>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="hidden lg:block items-center justify-between w-full lg:flex lg:w-auto lg:order-1"
+                        id="navbar-user">
+                        <ul
+                            class="flex flex-col font-medium pt-4 mt-4 lg:space-x-8 rtl:space-x-reverse lg:flex-row lg:mt-0 border-t border-white lg:bg-transparent lg:rounded-none lg:border-none lg:p-0">
+                            <li>
+                                <a href="#vai"
+                                    class="block py-2 px-3 relative text-white rounded-lg text-center hover:bg-[#2a2a2a] lg:hover:text-[#D91424] transition-all ease-in-out lg:before:transition-[width] lg:before:ease-in-out lg:before:duration-700 lg:before:absolute lg:before:bg-[#D91424] lg:before:origin-center lg:before:h-[1px] lg:before:w-0 hover:before:w-[50%] lg:before:bottom-0 lg:before:left-[50%] lg:after:transition-[width] lg:after:ease-in-out lg:after:duration-700 lg:after:absolute lg:after:bg-[#D91424] lg:after:origin-center lg:after:h-[1px] lg:after:w-0 lg:hover:after:w-[50%] lg:after:bottom-0 lg:after:right-[50%] medio lg:hover:bg-transparent">Instalar</a>
+                            </li>
+                            <li>
+                                <a href="sobrenos.html"
+                                    class="block py-2 px-3 relative text-white rounded-lg text-center hover:bg-[#2a2a2a] lg:hover:text-[#D91424] transition-all ease-in-out lg:before:transition-[width] lg:before:ease-in-out lg:before:duration-700 lg:before:absolute lg:before:bg-[#D91424] lg:before:origin-center lg:before:h-[1px] lg:before:w-0 hover:before:w-[50%] lg:before:bottom-0 lg:before:left-[50%] lg:after:transition-[width] lg:after:ease-in-out lg:after:duration-700 lg:after:absolute lg:after:bg-[#D91424] lg:after:origin-center lg:after:h-[1px] lg:after:w-0 lg:hover:after:w-[50%] lg:after:bottom-0 lg:after:right-[50%] medio lg:hover:bg-transparent">Sobre
+                                    Nós</a>
+                            </li>
+                            <li>
+                                <a href="suporte.html"
+                                    class="block py-2 px-3 relative text-white rounded-lg text-center hover:bg-[#2a2a2a] lg:hover:text-[#D91424] transition-all ease-in-out lg:before:transition-[width] lg:before:ease-in-out lg:before:duration-700 lg:before:absolute lg:before:bg-[#D91424] lg:before:origin-center lg:before:h-[1px] lg:before:w-0 hover:before:w-[50%] lg:before:bottom-0 lg:before:left-[50%] lg:after:transition-[width] lg:after:ease-in-out lg:after:duration-700 lg:after:absolute lg:after:bg-[#D91424] lg:after:origin-center lg:after:h-[1px] lg:after:w-0 lg:hover:after:w-[50%] lg:after:bottom-0 lg:after:right-[50%] medio lg:hover:bg-transparent">Suporte</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </section>
+        <!-- END NAVBAR SECTION -->
+    
+        <!-- CONTENT #1 -->
+        <section>
+            <div class="">
+                <div class="flex items-center justify-center">
+                    <div class="w-[100%] h-auto p-4">
+                        <hr class="mx-auto w-full max-w-screen-xl mt-1 border mt-[0] mb-[6px]">
+                        <div class="text-3xl text-white medio text-center md:text-6xl">
+                            Uma nova forma
+                        </div>
+                        <div class="text-3xl text-white medio text-center md:text-6xl">
+                            de consumir
+                        </div>
+                        <div class="md:flex items-center justify-center">
+                            <img class="w-[300px] h-auto mt-2 md:w-[350px] md:mr-[100px]" src="/img/img1.png"/>
+                        </div>
+                        <div class="text-6xl text-white lighti text-center md:text-8xl">
+                            BRECHÓS
+                        </div>
+                        <hr class="mx-auto w-full max-w-screen-xl mt-1 border">
+                    </div>
+                </div>
+        </section>
+        <!-- END CONTENT #1 -->
+            
+        <!-- BUTTON FOR THE DOWNLOAD OF THE APP -->
+        <section>
+            <div class="flex flex-col items-center justify-center mb-[40px]">
+                <button class="w-[200px] h-[40px] bg-white rounded-[20px] flex items-center justify-between pr-[5px] pl-[15px] hover:text-[#d91424] drop-shadow-lg group hover:scale-125 transform transition-transform" id="vai">
+                    <div class="text-[1.125rem] text-black group-hover:text-[#d91424] medio">BAIXAR</div>
+                    <div class="w-[32px] h-[32px] bg-black rounded-full group-hover:bg-[#d91424] flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25px" height="25px" viewBox="0 0 24 24">
+                            <path fill="white" d="M11 4h2v12l5.5-5.5l1.42 1.42L12 19.84l-7.92-7.92L5.5 10.5L11 16z"/>
+                        </svg>
+                    </div>
+                </button>
+                <div class="mt-2 text-[0.8rem] text-white medio">disponível apenas para android</div>
+            </div>
+        </section>
+        <!-- END BUTTON FOR THE DOWNLOAD OF THE APP -->
+    </section>
+    <!-- NAVBAR SECTION -->
+    
+            
+    <!-- CONTENT #2 -->
+    <section class="p-1.5 md:p-0">
+        <div class="mb-[40px] flex items-center justify-center">
+            <div class="mx-auto w-full max-w-screen-xl ml-[12px] mr-[12px] rounded-[25px] corf">
+                <div class="grid grid-rows-2 gap-4 lg:grid-cols-2 lg:grid-rows-none items-center justify-center p-4">
+                    <div class="relative flex flex-col items-center justify-center  md:h-[0]">
+                        <div class="text-white text-4xl bold md:text-5xl lg:text-4xl  xl:text-5xl text-center ">
+                                Disponibilizando brechós para todos!
+                        </div>
+                        
+                        <div class="text-white text-lg md:text-xl book mt-[20px]  lg:mt-[25px] xl:text-2xl lg:text-justify text-center">
+                                Uma plataforma para fazer compras sustentáveis e seguras. Baixe nosso aplicativo e comece a testar.
+                        </div>
+                        
+                        <div class="flex items-center justify-center mt-[25px] gap-8 lg:gap-6 lg:mt-[35px]">
+                                <a href="cad-email.html">
+                                    <button class="w-[155px] bg-white border-2 border-white text-black rounded-[20px] text-md bold p-1 hover:bg-transparent hover:text-white md:w-[200px] md:text-lg 
+                                    lg:text-xl xl:w-[250px] xl:text-2xl hover:scale-110 transform transition-transform">Começar</button>
+                                </a>
+                                <a href="sobrenos.html">
+                                    <button class="w-[155px] border-2 border-white text-white rounded-[20px] text-md bold p-1 hover:bg-white hover:text-black md:w-[200px] md:text-lg  lg:text-xl xl:w-[250px] xl:text-2xl hover:scale-110 transform transition-transform">Saiba Mais</button>
+                                </a>
+                        </div>
+                            
+                        <img src="/img/star.svg" alt="Star Icon" class="absolute h-20 bottom-[-84px] md:h-28 md:bottom-[-250px] lg:top-[-230px] lg:right-[-530px] xl:top-[-270px] xl:right-[-670px] xl:h-26 gira">  
+                    </div>
+            
+                    <div class="sm:mb-[15px] lg:mb-[0px] flex items-center justify-center"> 
+                        <div class="w-[360px] h-[300px] rounded-[25px]  md:w-[650px] md:h-[400px] lg:h-[370px] xl:h-[450px] gif1"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- END CONTENT #2 -->
+        
+    <!-- CONTENT #3 -->
+    <section class="lg:min-h-screen flex items-center justify-center">
+        <div class="">
+            <section class="hidden lg:block mx-auto w-full max-w-screen-xl relative mb-[40px]">
+                <div class="border border-white">
+                    <div class="absolute text-white text-[1.1rem] light ml-2.5 mt-2.5">EVOLUÇÃO</div>
+                    <div class="absolute text-white text-[1.1rem] light left-[20%] ml-2.5 mt-2.5">EVOLUÇÃO</div>
+                    <div class="absolute text-white text-[1.1rem] light left-1/2 ml-2.5 mt-2.5">EVOLUÇÃO</div>
+                    <div class="absolute text-white text-[1.1rem] light left-[70%] ml-2.5 mt-2.5">EVOLUÇÃO</div>
+                    <div class="absolute text-white text-[1.1rem] light left-[85%] ml-2.5 mt-2.5">EVOLUÇÃO</div>
+                </div>
+                <div class="w-[27px] h-0 absolute top-[29px] -rotate-90 origin-top-left border border-white"></div>
+                <div class="w-[27px] h-0 absolute top-[29px] left-[20%] -rotate-90 origin-top-left border border-white"></div>
+                <div class="w-[27px] h-0 absolute top-[29px] left-1/2 -rotate-90 origin-top-left border border-white"></div>
+                <div class="w-[27px] h-0 absolute top-[29px] left-[70%] -rotate-90 origin-top-left border border-white"></div>
+                <div class="w-[27px] h-0 absolute top-[29px] left-[85%] -rotate-90 origin-top-left border border-white"></div>
+                <div class="w-[29px] h-0 absolute top-[29px] left-[100%] -rotate-90 origin-top-left border border-white"></div>
+            </section>
+    
+            <section class="p-2">
+                <div class="mx-auto w-full max-w-screen-xl flex flex-row items-center justify-center">
+                    <div class="grid grid-cols-2 lg:grid-cols-4 gap-2 lg:gap-6">
+                        <!-- Primeira coluna -->
+                        <div class="col-span-2 lg:col-span-2 w-full h-[430px] lg:h-[400px] rounded-[25px] bg-[#D91424] lg:hover:scale-105 transform transition-transform hover:drop-shadow-2xl z-10">
+                            <div class="flex justify-center lg:justify-start space-x-4 p-6">
+                              <button id="flexButton" class="w-auto h-[35px] rounded-[20px] border border-white flex items-center justify-center hover:bg-white group snap-start focus:bg-white  transform active:scale-x-75 transform active:scale-y-75 transition-transform flex">
+                                <div class="text-white p-2 mr-[7px] ml-[7px] text-[1rem] medio group-hover:text-black group-focus-within:text-black">Flexível</div>
+                              </button>
+                              <button id="persoButton" class="w-auto h-[35px] rounded-[20px] border border-white flex items-center justify-center hover:bg-white group snap-start  transform active:scale-x-75 transform active:scale-y-75 transition-transform flex">
+                                <div class="text-white p-2 mr-[7px] ml-[7px] text-[1rem] medio group-hover:text-black">Estilo</div>
+                              </button>
+                              <button id="circuButton" class="w-auto h-[35px] rounded-[20px] border border-white flex items-center justify-center hover:bg-white group snap-start  transform active:scale-x-75 transform active:scale-y-75 transition-transform flex">
+                                <div class="text-white p-2 mr-[7px] ml-[7px] text-[1rem] medio group-hover:text-black">Circular</div>
+                              </button>
+                            </div>
+                            
+                            <div class="p-6">
+                              <div id="flexContent" class="text-white">
+                                <div class="text-white text-[5rem] book">Flexível</div>
+                                <div class="w-auto h-[0px] border border-white"></div>
+                                <div class="text-md book mt-4 mb-4 text-justify text-white">
+                                  Facilita a escolha de estilos de roupas mais flexíveis ao oferecer sugestões personalizadas que se adaptam ao seu gosto e à sua rotina. Permitindo que você esteja sempre preparado para qualquer ocasião, sem abrir mão do seu estilo.
+                                </div>
+                              </div>
+                              
+                              <div id="persoContent" class="hidden text-white">
+                                <div class="text-white text-[5rem] book">Estilo</div>
+                                <div class="w-auto h-[0px] border border-white"></div>
+                                <div class="text-md book mt-4 mb-4 text-justify text-white">
+                                    Em vez de seguir as tendências de moda de massa, que muitas vezes limitam as opções a peças padronizadas e rapidamente descartáveis, os brechós oferecem roupas únicas, cheias de história e autenticidade. 
+                                </div>
+                              </div>
+                              
+                              <div id="circuContent" class="hidden text-white">
+                                <div class="text-white text-[5rem] book">Circular</div>
+                                <div class="w-auto h-[0px] border border-white"></div>
+                                <div class="text-md book mt-4 mb-4 text-justify text-white">
+                                    A moda circular é crucial para a sustentabilidade, pois incentiva a reutilização e reciclagem de materiais, diminuindo o desperdício e o impacto ambiental. Essa abordagem transforma o consumo e a produção de vestuário.
+                                </div>
+                              </div>
+                            </div>
+                        </div>
+                        <!-- Segunda coluna -->
+                        <div class="col-span-1 lg:col-span-1 h-[320px] lg:h-[400px] rounded-[25px] bg-cover bg-center fundo lg:hover:scale-105 transform transition-transform hover:drop-shadow-2xl z-10">
+                            <div class="flex justify-end">
+                                <div class="book text-white p-2 mr-[5px] lg:text-xl">
+                                    weave
+                                </div>
+                            </div>
+                            <div class="flex">
+                                <div class="medio text-white p-2 text-3xl ml-[5px] absolute bottom-0 lg:text-4xl">
+                                    para o <br> futuro,
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Terceira coluna -->
+                        <div class="col-span-1 lg:col-span-1 h-[320px] lg:h-[400px] rounded-[25px] corf flex items-center justify-center lg:hover:scale-105 transform transition-transform hover:drop-shadow-2xl z-10">
+                            <div class="">
+                                <div class="flex items-center justify-center">
+                                    <div class="text-white text-2xl p-[20px] bold lg:text-4xl">Adicione</div>
+                                </div>
+                                <button class="w-[60px] h-[60px] rounded-full flex items-center justify-center corf1 mx-auto hover:scale-125  transform active:scale-x-75 transform active:scale-y-75 transition-transform flex">
+                                    <svg width="45px" height="45px" viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000" stroke="#000000">
+                                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                        <g id="SVGRepo_iconCarrier">
+                                            <title>add</title>
+                                            <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                <g id="Shape" fill="#ffffff" transform="translate(65.929697, 65.929697)">
+                                                    <polygon points="211.189225 2.36847579e-14 211.189225 168.95138 380.140606 168.95138 380.140606 211.189225 211.189225 211.189225 211.189225 380.140606 168.95138 380.140606 168.95138 211.189225 -1.42108547e-14 211.189225 -1.42108547e-14 168.95138 168.95138 168.95138 168.95138 -1.42108547e-14"></polygon>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                </button>
+                                <div class="flex flex-col items-center justify-center pt-[20px]">
+                                    <div class="text-white text-xl medio lg:text-2xl">Sustentabilidade</div>
+                                    <div class="text-gray-100 medio text-lg lg:text-xl">Sustentabilidade</div>
+                                    <div class="text-gray-200 medio text-md lg:text-lg">Sustentabilidade</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="p-2 mb-[40px]">
+                <div class="mx-auto w-full max-w-screen-xl">
+                    <div class="flex items-center justify-center">
+                        <div class="grid grid-cols-1 lg:grid-cols-3 w-full gap-2 lg:gap-6">
+                            <!-- Primeira coluna -->
+                            <div class="col-span-1 lg:hover:scale-105 transform transition-transform hover:drop-shadow-2xl relative lg:hover:z-30 z-10">
+                                <div class="relative w-full h-[350px] rounded-[25px] bg-cover bg-center fundo1">
+                                    <div class="flex justify-start">
+                                        <div class="text-white book text-xl p-2 ml-[5px]">
+                                            2024
+                                        </div>
+                                    </div>
+                                    <div class="absolute bottom-0 right-0 text-white text-4xl p-2 mr-[5px] medio">
+                                        incluindo o <br> passado.
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Segunda coluna -->
+                            <div class="col-span-1 lg:hover:scale-105 transform transition-transform hover:drop-shadow-2xl relative lg:hover:z-30 z-10">
+                                <div class="relative w-full h-[350px] rounded-[25px] bg-cover bg-center fundo2">
+                                    <button class="absolute bottom-0 left-1/2 transform -translate-x-1/2 mb-4 focus:scale-125 transform active:scale-x-80 transform active:scale-y-80 transition-transform">
+                                        <svg width="70" height="70" viewBox="0 0 57 57" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M56 28.5C56 43.6878 43.6878 56 28.5 56C13.3122 56 1 43.6878 1 28.5C1 13.3122 13.3122 1 28.5 1C43.6878 1 56 13.3122 56 28.5Z" stroke="white" stroke-width="2"/>
+                                            <circle cx="28.5" cy="28.5" r="19.1333" fill="#D9D9D9" fill-opacity="0.7" stroke="#BDBFC0"/>
+                                        </svg>
+                                    </button>
+            
+                                    <div class="flex justify-between p-2 w-full">
+                                        <div>
+                                            <button class="h-[40px] w-[40px] rounded-full corf2 flex items-center justify-center hover:scale-125 transform transition-transform">
+                                                <img class="h-6" src="/img/Camera Plus.svg" alt="">
+                                            </button>
+                                        </div>
+            
+                                        <div class="">
+                                            <div class="text-xl text-white medio">
+                                                +100mil usuários
+                                            </div>
+                                            <div class="text-xl text-white medio">
+                                                já estão conosco
+                                            </div>
+                                        </div>
+                                        
+                                        <div>
+                                            <button class="h-[40px] w-[40px] rounded-full corf2 flex items-center justify-center hover:scale-125 transform transition-transform">
+                                                <img class="h-6" src="/img/Face ID icon.svg" alt="">
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Terceira coluna -->
+                            <div class="col-span-1 lg:hover:scale-105 transform transition-transform hover:drop-shadow-2xl relative lg:hover:z-30 z-10">
+                                <div class="w-full h-[350px] rounded-[25px] bg-cover bg-center bg-[#468299]">
+                                    <div class="flex justify-between p-6 w-full">
+                                        <div class="">
+                                            <div class="text-6xl text-white medio">
+                                                para todos mas não qualquer
+                                            </div>
+                                            <div class="text-6xl text-white bolder">
+                                                um.
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="">
+                                           <img class="gira2" src="/img/Global Vector Icon.svg" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </section>
+    <!-- END CONTENT #3 -->
+      
+    <!-- CONTENT #4 -->
+    <section class="bg-[#013C55] flex items-center justify-center lg:min-h-screen">
+        <div class="bg-[#013C55] p-4 h-full">
+            <div class="mx-auto w-full max-w-screen-xl bg-gradient-to-b from-[#FFFFFF] via-[#017680] to-[#013C55] lg:bg-gradient-to-r from-[#FFFFFF] via-[#017680] p-[3px] rounded-[25px] h-full">
+                <div class="rounded-[23px] bg-[#013C55] h-full">
+                    <div class="w-full max-w-screen-xl grid grid-cols-1 lg:grid-cols-2 md:p-6 lg:p-0 gap-4 h-full">
+                        <!-- Primeira coluna -->
+                        <div class="relative rounded-[23px] bg-[#013C55] h-full flex flex-col justify-center">
+                            <div class="flex items-center gap-2 p-2 md:p-4 md:gap-4 xl:relative xl:right-[-80px]">
+                                <svg class="mt-[30px]" width="280" height="71" viewBox="0 0 280 71" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M70 35C70 54.33 54.33 70 35 70C15.67 70 0 54.33 0 35C0 15.67 15.67 0 35 0C54.33 0 70 15.67 70 35Z" fill="white"/>
+                                    <path d="M105 34.9999C105 54.3299 89.33 69.9999 70 69.9999C50.67 69.9999 35 54.3299 35 34.9999C35 15.6699 50.67 -0.000105267 70 -0.000105267C89.33 -0.000105267 105 15.6699 105 34.9999Z" fill="white" fill-opacity="0.7"/>
+                                    <path d="M135 35C135 54.33 119.33 70 100 70C80.67 70 65 54.33 65 35C65 15.67 80.67 0 100 0C119.33 0 135 15.67 135 35Z" fill="white" fill-opacity="0.6"/>
+                                    <path d="M184 34.9998C184 54.3298 168.33 69.9998 149 69.9998C129.67 69.9998 114 54.3298 114 34.9998C114 15.6699 129.67 -0.000178094 149 -0.000178094C168.33 -0.000178094 184 15.6699 184 34.9998Z" fill="white" fill-opacity="0.5"/>
+                                    <path d="M233 34.9998C233 54.3298 217.33 69.9998 198 69.9998C178.67 69.9998 163 54.3298 163 34.9998C163 15.6699 178.67 -0.000178094 198 -0.000178094C217.33 -0.000178094 233 15.6699 233 34.9998Z" fill="white" fill-opacity="0.22"/>
+                                    <path d="M280 35.9998C280 55.3298 264.33 70.9998 245 70.9998C225.67 70.9998 210 55.3298 210 35.9998C210 16.6699 225.67 0.999822 245 0.999822C264.33 0.999822 280 16.6699 280 35.9998Z" fill="white" fill-opacity="0.1"/>
+                                </svg>
+                                <div class="text-white text-4xl mt-[30px] book md:text-7xl lg:text-5xl xl:text-[4rem]">EXCELENTE</div>
+                            </div>
+                            <div class="p-2 text-white text-4xl light md:text-7xl lg:text-5xl xl:text-[4rem] md:p-4 xl:relative xl:right-[-80px]">
+                                E MUITO SIMPLES
+                            </div>
+                            <div class="mt-[30px] relative flex flex-col items-center">
+                                <!-- Container do vídeo -->
+                                <div class="relative lg:ml-[150px] flex justify-center items-center w-[300px] h-[300px] bg-gray-200 rounded-lg overflow-hidden ">
+                                    <!-- Vídeo -->
+                                    <video
+                                        id="videoPlayer"
+                                        class="w-full h-full object-cover"
+                                        autoplay
+                                        loop
+                                        muted
+                                        poster="img/fundopreto.jpeg"
+                                    >
+                                        <source src="img/videoapp.mp4" type="video/mp4" />
+                                        Seu navegador não suporta vídeos.
+                                    </video>
+                                    
+                                    <!-- Botão Play/Pause -->
+                                    
+                                </div>
+                                <button
+                                    class="absolute right-[10px] top-[123px] rounded-full bg-white w-[60px] h-[60px] flex items-center justify-center md:right-[157px] lg:right-[-18px] xl:right-[57px]"
+                                    id="playPauseButton"
+                                >
+                                    <svg aria-hidden="true" viewBox="0 0 16 16" class="h-6 play-icon">
+                                        <path d="M3 1.713a.7.7 0 0 1 1.05-.607l10.89 6.288a.7.7 0 0 1 0 1.212L4.05 14.894A.7.7 0 0 1 3 14.288V1.713z"></path>
+                                    </svg>
+                                    <svg aria-hidden="true" viewBox="0 0 16 16" class="h-6 pause-icon hidden">
+                                        <path d="M2.5 1h2a.5.5 0 0 1 .5.5v13a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 .5-.5zm8 0h2a.5.5 0 0 1 .5.5v13a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 .5-.5z"></path>
+                                    </svg>
+                                </button>
+                                
+                                <!-- Texto abaixo do vídeo -->
+                                <div class="flex justify-center items-center text-white text-md text-center p-4 book mt-[14px] mb-[14px] md:text-2xl lg:text-xl xl:relative xl:right-[-80px] xl:text-2xl">
+                                    Com uma interface amigável, você pode navegar facilmente pelas funcionalidades, sem complicações. Tudo foi pensado para que você possa aproveitar ao máximo sem a necessidade de conhecimentos técnicos avançados.
+                                </div>
+                            </div>
+                        </div>
+        
+                        <!-- Segunda coluna -->
+                        <div class="lg:flex justify-end">
+                            <div class="relative fundo3 h-[500px] bg-cover bg-center bg-no-repeat rounded-[25px] md:h-[750px] lg:w-[560px] lg:h-full xl:w-[500px]">
+                                <div class="text-white text-5xl medio-i p-2 md:text-6xl lg:text-5xl xl:text-6xl">
+                                        #we
+                                </div>
+                                <a href="#vai">
+                                    <button class="flex items-center justify-center bg-white rounded-full w-[83px] h-[80px] m-[10px] absolute bottom-0 right-0 lg:w-[103px] lg:h-[103px] animate-bounce">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" viewBox="0 0 56 63" fill="none">
+                                            <path d="M25.6666 51.1876V20.7743L15.1666 32.5868L11.8673 28.8751L28 10.7258L44.1326 28.8751L40.8333 32.5868L30.3333 20.7743V51.1876H25.6666Z" fill="black"/>
+                                        </svg>
+                                    </button>
+                                </a>
+                            </div>
+                        </div>
+        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- END CONTENT #4 -->
+        
+    
+    <!-- FOOTER SECTION -->
+    <section>
+        <footer class="xl:min-h-screen bg-white flex items-center justify-center">
+            <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
+                <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8"/>
+                <div class="md:flex md:justify-between">
+                <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-4">
+                    <div>
+                        <h2 class="mb-6 text-md text-black font-medium bold">principal</h2>
+                        <ul class="text-gray-500 dark:text-gray-400 font-medium medio">
+                            <li class="mb-4">
+                                <a href="index.html" class="hover:underline">home</a>
+                            </li>
+                            <li>
+                                <a href="perfil.html" data-auth="signed-in">conta</a>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h2 class="mb-6 text-md text-black font-medium bold">siga-nos</h2>
+                        <ul class="text-gray-500 dark:text-gray-400 font-medium medio">
+                            <li class="mb-4">
+                                <a href="https://www.instagram.com/" class="hover:underline ">instagram</a>
+                            </li>
+                            <li>
+                                <a href="https://www.youtube.com/" class="hover:underline">youtube</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h2 class="mb-6 text-md text-black font-medium bold">app</h2>
+                        <ul class="text-gray-500 dark:text-gray-400 font-medium medio">
+                            <li class="mb-4">
+                                <a href="index.html" class="hover:underline">instalar</a>
+                            </li>
+                            <li>
+                                <a href="vender.html" class="hover:underline" data-page="vender"">vendedor</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h2 class="mb-6 text-md text-black font-medium bold">outros</h2>
+                        <ul class="text-gray-500 dark:text-gray-400 font-medium medio">
+                            <li class="mb-4">
+                                <a href="sobrenos.html" class="hover:underline">sobre nós</a>
+                            </li>
+                            <li>
+                                <a href="suporte.html" class="hover:underline">suporte</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8"/>
+                <div class="flex items-center justify-center mt-[20px]">
+                    <a href="index.html" class="flex-row items-center">
+                        <img src="/img/logo-escrita-preta.svg"/>
+                    </a>
+                </div>
+            <hr class="my-4 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-0 lg:mb-[32px]"/>
+            <div class="sm:flex sm:items-center sm:justify-between">
+                <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400 book">Weave © 2024. Todos os direitos reservados.
+                </span>
+                <div class="flex mt-4 sm:justify-center sm:mt-0">
+                    <a href="https://www.facebook.com/?locale=pt_BR" class="text-gray-500 hover:text-gray-900 dark:hover:text-white hover:scale-125 transform transition-transform">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none">
+                            <path d="M22.9167 12.5002C22.9167 6.75016 18.25 2.0835 12.5 2.0835C6.75004 2.0835 2.08337 6.75016 2.08337 12.5002C2.08337 17.5418 5.66671 21.7397 10.4167 22.7085V15.6252H8.33337V12.5002H10.4167V9.896C10.4167 7.88558 12.0521 6.25016 14.0625 6.25016H16.6667V9.37516H14.5834C14.0105 9.37516 13.5417 9.84391 13.5417 10.4168V12.5002H16.6667V15.6252H13.5417V22.8647C18.8021 22.3439 22.9167 17.9064 22.9167 12.5002Z" fill="#B3B3B3"/>
+                        </svg>
+                        <span class="sr-only">Facebook page</span>
+                    </a>
+                    <a href="https://www.instagram.com/" class="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5 hover:scale-125 transform transition-transform">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none">
+                            <path d="M8.12504 2.0835H16.875C20.2084 2.0835 22.9167 4.79183 22.9167 8.12516V16.8752C22.9167 18.4775 22.2802 20.0142 21.1471 21.1473C20.0141 22.2803 18.4774 22.9168 16.875 22.9168H8.12504C4.79171 22.9168 2.08337 20.2085 2.08337 16.8752V8.12516C2.08337 6.52281 2.71991 4.98609 3.85294 3.85306C4.98597 2.72003 6.52269 2.0835 8.12504 2.0835ZM7.91671 4.16683C6.92215 4.16683 5.96832 4.56192 5.26506 5.26518C4.5618 5.96844 4.16671 6.92227 4.16671 7.91683V17.0835C4.16671 19.1564 5.84379 20.8335 7.91671 20.8335H17.0834C18.0779 20.8335 19.0318 20.4384 19.735 19.7351C20.4383 19.0319 20.8334 18.0781 20.8334 17.0835V7.91683C20.8334 5.84391 19.1563 4.16683 17.0834 4.16683H7.91671ZM17.9688 5.72933C18.3141 5.72933 18.6453 5.86651 18.8895 6.1107C19.1337 6.35489 19.2709 6.68608 19.2709 7.03141C19.2709 7.37675 19.1337 7.70794 18.8895 7.95212C18.6453 8.19631 18.3141 8.3335 17.9688 8.3335C17.6235 8.3335 17.2923 8.19631 17.0481 7.95212C16.8039 7.70794 16.6667 7.37675 16.6667 7.03141C16.6667 6.68608 16.8039 6.35489 17.0481 6.1107C17.2923 5.86651 17.6235 5.72933 17.9688 5.72933ZM12.5 7.29183C13.8814 7.29183 15.2061 7.84056 16.1829 8.81731C17.1596 9.79407 17.7084 11.1188 17.7084 12.5002C17.7084 13.8815 17.1596 15.2063 16.1829 16.183C15.2061 17.1598 13.8814 17.7085 12.5 17.7085C11.1187 17.7085 9.79394 17.1598 8.81719 16.183C7.84044 15.2063 7.29171 13.8815 7.29171 12.5002C7.29171 11.1188 7.84044 9.79407 8.81719 8.81731C9.79394 7.84056 11.1187 7.29183 12.5 7.29183ZM12.5 9.37516C11.6712 9.37516 10.8764 9.7044 10.2903 10.2905C9.70428 10.8765 9.37504 11.6714 9.37504 12.5002C9.37504 13.329 9.70428 14.1238 10.2903 14.7099C10.8764 15.2959 11.6712 15.6252 12.5 15.6252C13.3288 15.6252 14.1237 15.2959 14.7097 14.7099C15.2958 14.1238 15.625 13.329 15.625 12.5002C15.625 11.6714 15.2958 10.8765 14.7097 10.2905C14.1237 9.7044 13.3288 9.37516 12.5 9.37516Z" fill="#B3B3B3"/>
+                        </svg>
+                        <span class="sr-only">Intagram page</span>
+                    </a>
+                    <a href="https://twitter.com/?lang=pt-br" class="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5 hover:scale-125 transform transition-transform">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none">
+                            <path d="M18.4907 3.125H21.6855L14.7063 11.0677L22.9167 21.875H16.4875L11.4532 15.3198L5.69171 21.875H2.49379L9.95942 13.3802L2.08337 3.125H8.67504L13.2271 9.11667L18.4907 3.125ZM17.3698 19.9708H19.1407L7.71254 4.92917H5.81254L17.3698 19.9708Z" fill="#B3B3B3"/>
+                        </svg>
+                        <span class="sr-only">X account</span>
+                    </a>
+                    <a href="https://br.pinterest.com/" class="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5 hover:scale-125 transform transition-transform">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none">
+                            <path d="M9.41671 22.4377C10.4167 22.7397 11.4271 22.9168 12.5 22.9168C15.2627 22.9168 17.9122 21.8194 19.8657 19.8659C21.8192 17.9124 22.9167 15.2628 22.9167 12.5002C22.9167 11.1322 22.6473 9.77768 22.1238 8.51388C21.6003 7.25007 20.833 6.10174 19.8657 5.13447C18.8985 4.16719 17.7501 3.3999 16.4863 2.87642C15.2225 2.35293 13.868 2.0835 12.5 2.0835C11.1321 2.0835 9.77756 2.35293 8.51375 2.87642C7.24995 3.3999 6.10162 4.16719 5.13434 5.13447C3.18084 7.08797 2.08337 9.73749 2.08337 12.5002C2.08337 16.9272 4.86462 20.7293 8.79171 22.2293C8.69796 21.4168 8.60421 20.0731 8.79171 19.146L9.98962 14.0002C9.98962 14.0002 9.68754 13.396 9.68754 12.4377C9.68754 11.0002 10.5834 9.92725 11.6042 9.92725C12.5 9.92725 12.9167 10.5835 12.9167 11.4272C12.9167 12.3231 12.323 13.6043 12.0209 14.8335C11.8438 15.8543 12.5625 16.7502 13.6042 16.7502C15.4584 16.7502 16.8959 14.771 16.8959 11.9793C16.8959 9.47933 15.1042 7.771 12.5313 7.771C9.59379 7.771 7.86462 9.9585 7.86462 12.2606C7.86462 13.1564 8.15629 14.0627 8.63546 14.6564C8.72921 14.7189 8.72921 14.8022 8.69796 14.9585L8.39587 16.0939C8.39587 16.271 8.28129 16.3335 8.10421 16.2085C6.77087 15.6252 6.00004 13.7293 6.00004 12.1981C6.00004 8.90641 8.33337 5.91683 12.8334 5.91683C16.4167 5.91683 19.2084 8.48975 19.2084 11.9064C19.2084 15.4897 16.9896 18.3647 13.8125 18.3647C12.8021 18.3647 11.8125 17.8231 11.4584 17.1877L10.7605 19.6564C10.5209 20.5522 9.86462 21.7502 9.41671 22.4689V22.4377Z" fill="#B3B3B3"/>
+                        </svg>
+                        <span class="sr-only">Pinterest account</span>
+                    </a>
+                    <a href="https://www.youtube.com/" class="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5 hover:scale-125 transform transition-transform">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none">
+                            <path d="M10.4167 15.6252L15.823 12.5002L10.4167 9.37516V15.6252ZM22.4584 7.46891C22.5938 7.9585 22.6875 8.61475 22.75 9.44808C22.823 10.2814 22.8542 11.0002 22.8542 11.6252L22.9167 12.5002C22.9167 14.7814 22.75 16.4585 22.4584 17.5314C22.198 18.4689 21.5938 19.0731 20.6563 19.3335C20.1667 19.4689 19.2709 19.5627 17.8959 19.6252C16.5417 19.6981 15.3021 19.7293 14.1563 19.7293L12.5 19.7918C8.13546 19.7918 5.41671 19.6252 4.34379 19.3335C3.40629 19.0731 2.80212 18.4689 2.54171 17.5314C2.40629 17.0418 2.31254 16.3856 2.25004 15.5522C2.17712 14.7189 2.14587 14.0002 2.14587 13.3752L2.08337 12.5002C2.08337 10.2189 2.25004 8.54183 2.54171 7.46891C2.80212 6.53141 3.40629 5.92725 4.34379 5.66683C4.83337 5.53141 5.72921 5.43766 7.10421 5.37516C8.45837 5.30225 9.69796 5.271 10.8438 5.271L12.5 5.2085C16.8646 5.2085 19.5834 5.37516 20.6563 5.66683C21.5938 5.92725 22.198 6.53141 22.4584 7.46891Z" fill="#B3B3B3"/>
+                        </svg>
+                        <span class="sr-only">Youtube account</span>
+                    </a>
+                </div>
+            </div>
+            </div>
+        </footer>
+    </section>
+    <!-- END FOOTER SECTION -->
+    
+    <script type="module" src="js/logado.js"></script>
+    <script type="module" src="js/logout.js"></script> 
+    <script src="js/app.js"></script>
+    <script src="js/vdplayer.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
+</body>
+
+</html>

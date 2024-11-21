@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link id="favicon" rel="icon" href="/img/logo-desenho-preta.ico">
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <section class="bg-gray-700">
+        <nav class="">
+            <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+                <a class="flex items-center justify-between;" href="index.html">
+                    <img class="h-9 mr-[5px]" src="img/logo-desenho.svg" alt="logo">
+                    <img class="h-9" src="img/logo-escrita.svg" alt="logo">
+                </a>
+                <div class="flex items-center lg:order-2 space-x-3 lg:space-x-0 rtl:space-x-reverse">
+                    <button type="button"
+                        class="flex text-md items-center rounded-full lg:me-0 text-white hover:text-[#d91424] group"
+                        id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown"
+                        data-dropdown-placement="bottom" onclick="toggleRotation()">
+                        <span class="sr-only">Open user menu</span>
+                        <svg viewBox="-0.75 -0.75 24 24" xmlns="http://www.w3.org/2000/svg"
+                            id="Single-Man-Circle--Streamline-Ultimate" height="36" width="36"
+                            class="stroke-current text-white group-hover:text-[#d91424]">
+                            <desc>Single Man Circle Streamline Icon: https://streamlinehq.com</desc>
+                            <path
+                                d="M7.00875 6.641249999999999A8.1665625 8.1665625 0 0 0 12.890625 9.140625a8.1796875 8.1796875 0 0 0 3.234375 -0.6656249999999999"
+                                fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
+                            <path
+                                d="M6.328125 9.140625a4.921875 4.921875 0 1 0 9.84375 0 4.921875 4.921875 0 1 0 -9.84375 0Z"
+                                fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
+                            <path d="M17.7309375 19.571250000000003a9.136875 9.136875 0 0 0 -12.961875000000001 0"
+                                fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
+                            <path
+                                d="M0.703125 11.25a10.546875 10.546875 0 1 0 21.09375 0 10.546875 10.546875 0 1 0 -21.09375 0Z"
+                                fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
+                        </svg>
+                        <span
+                            class="hidden lg:block ml-[5px] mr-[5px] text-lg text-white group-hover:text-[#d91424] medio">
+                            Admin
+                        </span>
+                        <div class="hidden lg:block flex items-center justify-center group">
+                            <svg width="1.25rem" height="1.25rem" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"
+                                class="fill-current group-hover:text-[#d91424] transition-transform duration-300 transform"
+                                id="arrow-icon">
+                                <g id="SVGRepo_bgCarrier" stroke-width="0" />
+                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" />
+                                <g id="SVGRepo_iconCarrier">
+                                    <metadata id="metadata7">
+                                        <rdf:rdf>
+                                            <cc:work>
+                                                <dc:format>image/svg+xml</dc:format>
+                                                <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+                                                <dc:title />
+                                                <dc:date>2021</dc:date>
+                                                <dc:creator>
+                                                    <cc:agent>
+                                                        <dc:title>Timothée Giet</dc:title>
+                                                    </cc:agent>
+                                                </dc:creator>
+                                                <cc:license
+                                                    rdf:resource="http://creativecommons.org/licenses/by-sa/4.0/" />
+                                            </cc:work>
+                                            <cc:license rdf:about="http://creativecommons.org/licenses/by-sa/4.0/">
+                                                <cc:permits rdf:resource="http://creativecommons.org/ns#Reproduction" />
+                                                <cc:permits rdf:resource="http://creativecommons.org/ns#Distribution" />
+                                                <cc:requires rdf:resource="http://creativecommons.org/ns#Notice" />
+                                                <cc:requires rdf:resource="http://creativecommons.org/ns#Attribution" />
+                                                <cc:permits
+                                                    rdf:resource="http://creativecommons.org/ns#DerivativeWorks" />
+                                                <cc:requires rdf:resource="http://creativecommons.org/ns#ShareAlike" />
+                                            </cc:license>
+                                        </rdf:rdf>
+                                    </metadata>
+                                    <g id="layer1" transform="rotate(45 1254.793 524.438)">
+                                        <path d="M.536 1044.409v-1.997h9v-9h2v11z" />
+                                    </g>
+                                </g>
+                            </svg>
+                        </div>
+                    </button>
+
+                    <!-- Dropdown menu -->
+                    <div class="z-50 hidden my-4 text-base rounded-lg shadow bg-black" id="user-dropdown">
+                        <div class="pb-[0] pl-[10px] pr-[10px] py-3">
+                            <span
+                                class="block text-md bg-[#2a2a2a] border-8  text-white  border-[#2a2a2a] rounded-lg medio ">Gerenciar
+                                sua conta</span>
+                        </div>
+                        <ul class="py-2" aria-labelledby="user-menu-button">
+                            <li>
+                                <button type="button" id="btnSair"
+                                    class="block px-4 py-2 text-md text-white hover:text-[#D91424] medio"
+                                    data-auth="signed-in">Sair</button>
+                            </li>
+                        </ul>
+                    </div>
+                    <button data-collapse-toggle="navbar-user" type="button"
+                        class="inline-flex items-center  w-10 h-10 justify-center text-md rounded-lg lg:hidden"
+                        aria-controls="navbar-user" aria-expanded="false">
+                        <span class="sr-only">Open main menu</span>
+                        <svg width="64px" height="64px" viewBox="0 0 24.00 24.00" fill="none"
+                            xmlns="http://www.w3.org/2000/svg" stroke="#ffffff" stroke-width="0.00024000000000000003">
+
+                            <g id="SVGRepo_bgCarrier" stroke-width="0" />
+
+                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" />
+
+                            <g id="SVGRepo_iconCarrier">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M19.5 8.25H4.5V6.75H19.5V8.25Z"
+                                    fill="#ffffff" />
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M19.5 12.75H4.5V11.25H19.5V12.75Z"
+                                    fill="#ffffff" />
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M19.5 17.25H4.5V15.75H19.5V17.25Z"
+                                    fill="#ffffff" />
+                            </g>
+                        </svg>
+                    </button>
+                </div>
+                <div class="hidden lg:block items-center justify-between w-full lg:flex lg:w-auto lg:order-1"
+                    id="navbar-user">
+                    <ul
+                        class="flex flex-col font-medium pt-4 mt-4 lg:space-x-8 rtl:space-x-reverse lg:flex-row lg:mt-0 border-t border-white lg:bg-transparent lg:rounded-none lg:border-none lg:p-0">
+                        <li>
+                            <a href="/adm.html"
+                                class="block py-2 px-3 relative text-white rounded-lg text-center hover:bg-[#2a2a2a] medio">Usuários</a>
+                        </li>
+                        <li>
+                            <a href="/adm2.html"
+                                class="block py-2 px-3 relative text-white rounded-lg text-center hover:bg-[#2a2a2a] medio">Mensagens</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </section>
+
+    <!-- TABLE -->
+    <section>
+        <div class="mx-auto w-full max-w-screen-xl p-4">
+            <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+                <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                    <thead class="text-md text-gray-700 uppercase bg-gray-700 dark:text-gray-400 bold">
+                        <tr>
+                            <th scope="col" class="p-4"></th>
+                            <th scope="col" class="p-4">E-mail</th>
+                            <th scope="col" class="p-4">Assunto</th>
+                            <th scope="col" class="p-4">Mensagens</th>
+                            <th scope="col" class="p-4">Data Envio</th>
+                            <th scope="col" class="p-4">Status</th>
+                            <th scope="col" class="p-4"></th>
+                            <th scope="col" class="p-4"></th>
+                        </tr>
+                    </thead>
+                    <tbody id="userRows">
+
+                    </tbody>
+                    <tbody id="userRows">
+
+                    </tbody>
+                </table>
+
+                <!-- Modal -->
+                <div id="modal"
+                    class="hidden overflow-y-auto overflow-x-hidden fixed inset-0 z-50 flex justify-center items-center w-full h-[calc(100%-1rem)] max-h-full">
+                    <div class="relative p-4 w-full max-w-2xl max-h-full">
+                        <!-- Modal content -->
+                        <div class="relative bg-white rounded-lg shadow">
+                            <!-- Modal header -->
+                            <div
+                                class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+                                <h3 class="text-xl text-black bold">
+                                    Envie uma resposta
+                                </h3>
+                                <button id="close" type="button"
+                                    class="text-black bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-300 dark:hover:text-white">
+                                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                        fill="none" viewBox="0 0 14 14">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                            stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                                    </svg>
+                                </button>
+                            </div>
+                            <!-- Modal body -->
+                            <div class="p-4 md:p-5 space-y-4">
+                                <div class="col-span-full">
+                                    <div class="flex justify-center rounded-lg w-full h-full">
+                                        <div class="flex-grow text-sm leading-6 text-gray-60 w-full h-full">
+                                            <textarea id="resposta" name="resposta" rows="3"
+                                                class="block w-full h-[300px] rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-black placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-black sm:text-md sm:leading-6 book"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Modal footer -->
+                            <div
+                                class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">
+                                <button id="EnviarResposta"
+                                    class="rounded-[20px] bg-black px-6 py-2 text-sm text-white shadow-sm hover:bg-[#055902] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 medio">Enviar</button>
+                                <button id="ApagarTexto"
+                                    class="text-sm font-semibold leading-6 text-gray-900 bold hover:text-[#D91424] ml-2">Apagar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <script type="module">
+
+       // Importa as funções necessárias do Firebase
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+        import { getFirestore, collection, getDocs, doc, deleteDoc } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
+
+        // Configuração do Firebase
+        const firebaseConfig = {
+            apiKey: "AIzaSyBEQNP7Avbu_2jPIrHrYvnTh3ypr3xUnLE",
+            authDomain: "weave-e.firebaseapp.com",
+            projectId: "weave-e",
+            storageBucket: "weave-e.appspot.com",
+            messagingSenderId: "550401847476",
+            appId: "1:550401847476:web:bb3ec0e4bcfa6af9c667e1",
+            measurementId: "G-7WZW49T0JH"
+        };
+
+        // Inicializa o Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        // Função para formatar o Firebase Timestamp
+        function formatTimestamp(timestamp) {
+            if (timestamp && timestamp.seconds) {
+                const date = new Date(timestamp.seconds * 1000);
+                return date.toLocaleDateString("pt-BR", {
+                    day: "2-digit",
+                    month: "2-digit",
+                    year: "numeric",
+                    hour: "2-digit",
+                    minute: "2-digit",
+                });
+            }
+            return "Data inválida";
+        }
+
+        // Função para encurtar texto
+        function encurtarTexto(texto, limite) {
+            if (texto.length > limite) {
+                const textoCurto = texto.slice(0, limite) + "...";
+                const spanTextoCompleto = document.createElement("span");
+                spanTextoCompleto.style.display = "none";
+                spanTextoCompleto.textContent = texto;
+
+                const spanTextoCurto = document.createElement("span");
+                spanTextoCurto.textContent = textoCurto;
+
+                const linkExpandir = document.createElement("a");
+                linkExpandir.textContent = " ver mais";
+                linkExpandir.href = "#";
+                linkExpandir.style.color = "white";
+                linkExpandir.style.cursor = "pointer";
+
+                linkExpandir.addEventListener("click", (e) => {
+                    e.preventDefault();
+                    if (spanTextoCompleto.style.display === "none") {
+                        spanTextoCompleto.style.display = "inline";
+                        spanTextoCurto.style.display = "none";
+                        linkExpandir.textContent = " ver menos";
+                    } else {
+                        spanTextoCompleto.style.display = "none";
+                        spanTextoCurto.style.display = "inline";
+                        linkExpandir.textContent = " ver mais";
+                    }
+                });
+
+                const container = document.createElement("span");
+                container.appendChild(spanTextoCurto);
+                container.appendChild(spanTextoCompleto);
+                container.appendChild(linkExpandir);
+
+                return container;
+            } else {
+                const span = document.createElement("span");
+                span.textContent = texto;
+                return span;
+            }
+        }
+
+        // Função para buscar mensagens do Firestore e preencher a tabela
+        async function fetchAndDisplayMessages() {
+            const mensagensRef = collection(db, "mensagens");
+            const snapshot = await getDocs(mensagensRef);
+            const tableBody = document.getElementById("userRows");
+
+            snapshot.forEach((doc) => {
+                const mensagem = doc.data();
+                console.log("Dados carregados do Firestore:", mensagem);
+
+                const row = document.createElement("tr");
+                row.className = "bg-white border-b dark:bg-gray-800 dark:border-gray-700 medio";
+
+                const mensagemCell = document.createElement("td");
+                mensagemCell.className = "p-4 text-justify";
+                mensagemCell.appendChild(encurtarTexto(mensagem.mensagem || "Mensagem não disponível", 250));
+
+                row.innerHTML = `
+                    <td class="p-4"></td>
+                    <th scope="row" class="p-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">${mensagem.email || "N/A"}</th>
+                    <td class="p-4">${mensagem.assunto || "Sem assunto"}</td>
+                    <td class="p-4">${formatTimestamp(mensagem.data)}</td>
+                    <td class="p-4">${mensagem.status || "Sem status"}</td>
+                    <td class="p-4"></td>
+                    <td class="flex items-center p-4">
+                        <button class="openModal font-medium text-red-600 dark:text-red-500 hover:underline">Responder</button>
+                    </td>
+                `;
+
+                row.insertBefore(mensagemCell, row.children[3]);
+                tableBody.appendChild(row);
+
+                const responderButton = row.querySelector('.openModal');
+                responderButton.addEventListener('click', () => openModal(mensagem.email, doc.id, row));
+            });
+
+            addModalFunctionality();
+        }
+
+        // Função para abrir o modal e armazenar o email
+        function openModal(email, docId, tableRow) {
+            const modalDiv = document.getElementById('modal');
+            modalDiv.classList.remove('hidden');
+            modalDiv.classList.add('flex');
+            const respostaInput = document.getElementById('resposta');
+            respostaInput.dataset.email = email;
+            respostaInput.dataset.docId = docId;
+            respostaInput.dataset.rowIndex = tableRow.rowIndex;
+        }
+
+        // Função para deletar a mensagem do Firestore e remover a linha da tabela
+        async function deleteMessage(docId, tableRow) {
+            try {
+                const docRef = doc(db, "mensagens", docId);
+                await deleteDoc(docRef);
+                tableRow.remove();
+                alert("Mensagem respondida e excluída com sucesso!");
+            } catch (error) {
+                console.error("Erro ao deletar mensagem:", error);
+                alert("Erro ao deletar a mensagem: " + error.message);
+            }
+        }
+
+        // Inicializar EmailJS
+        (function () {
+            emailjs.init("a59hnJAYeZnkMf4U4");
+        })();
+
+        // Função para enviar email
+        async function sendEmail(email, resposta, docId, tableRow) {
+            if (!email) {
+                alert("Email inválido ou não encontrado.");
+                return;
+            }
+
+            const params = {
+                to: email,
+                toname: email,
+                message: resposta,
+                subject: "Resposta ao seu contato"
+            };
+
+            const serviceID = "service_3u4vj7s";
+            const templateID = "julianapinto";
+
+            try {
+                await emailjs.send(serviceID, templateID, params);
+                alert("Resposta enviada com sucesso!");
+                deleteMessage(docId, tableRow);
+            } catch (error) {
+                console.error("Erro ao enviar email:", error);
+                alert("Erro ao enviar o email: " + error.message);
+            }
+        }
+
+        // Adicionar funcionalidade ao modal
+        function addModalFunctionality() {
+            const closeButton = document.getElementById('close');
+            closeButton.addEventListener('click', () => {
+                const modalDiv = document.getElementById('modal');
+                modalDiv.classList.add('hidden');
+                modalDiv.classList.remove('flex');
+            });
+
+            document.getElementById('EnviarResposta').addEventListener('click', () => {
+                const respostaInput = document.getElementById('resposta');
+                const email = respostaInput.dataset.email;
+                const docId = respostaInput.dataset.docId;
+                const tableRow = document.querySelector(`#userRows tr:nth-child(${respostaInput.dataset.rowIndex})`);
+                const resposta = respostaInput.value.trim();
+
+                if (email && resposta && docId && tableRow) {
+                    sendEmail(email, resposta, docId, tableRow);
+                } else {
+                    alert("Por favor, preencha todos os campos.");
+                }
+            });
+        }
+
+        // Limpar o campo de texto da resposta
+        document.getElementById('ApagarTexto').addEventListener('click', function () {
+            document.getElementById('mensagem').value = '';
+        });
+
+        // Chamar a função ao carregar a página
+        window.onload = fetchAndDisplayMessages;
+    </script>
+
+    <script type="module" src="/js/logout.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
+</body>
+
+</html>
